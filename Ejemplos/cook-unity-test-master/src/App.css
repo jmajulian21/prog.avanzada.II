@@ -1,0 +1,41 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 1.87rem;
+}
+
+.App-header {
+  background-color: white;
+  border-bottom-color: black;
+  height: 1.25rem;
+  padding: 1.25rem;
+  color: white;
+}
+
+.App-main {
+  background-color: #e5e5e5;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  flex: 1 0 auto;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+@media only screen and (min-width: 48rem) {
+  .App-main {
+    flex-direction: row;
+  }
+}
+
+/* // Small screen / phone (688px)
+$bp-mobile: 34em;
+// Medium screen / tablet (768px)
+$bp-tablet: 48em;
+// Large screen / desktop (960px)
+$bp-desktop: 60em;
+// Large desktops / (1200px and up)
+$bp-desktop-xl: 75em; */
