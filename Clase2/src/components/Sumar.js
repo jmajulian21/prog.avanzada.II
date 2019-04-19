@@ -9,12 +9,25 @@ class Sumar extends Component {
         this.props.getSuma(this.props.numUno+this.props.numDos);
     }
 
+    rectar = e => {
+        this.props.getSuma(this.props.numUno+this.props.numDos);
+    }
+
+    dividir = e => {
+        this.props.getSuma(this.props.numUno+this.props.numDos);
+    }
+
+    multiplicar = e => {
+        this.props.getSuma(this.props.numUno+this.props.numDos);
+    }
+
     render(){
-        console.log(this.props)
         return(
             <div>
                 <button onClick={this.sumar}>Sumar</button>
-                <h3>El resultado es: {this.props.numUno+this.props.numDos}</h3>
+                <button onClick={this.rectar}>Rectar</button>
+                <button onClick={this.dividir}>Dividir</button>
+                <button onClick={this.multiplicar}>Multiplicar</button>
             </div>
         )
     }

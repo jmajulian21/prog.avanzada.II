@@ -4,7 +4,6 @@ class Saludar extends Component {
     constructor(props){
         super(props);
         this.name = "Pepe";
-        console.log(props);
     }
 
     ejecutar = e => {
