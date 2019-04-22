@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-//import './App.css';
-import Saludar from './components/Saludar';
-import Sumar from './components/Sumar';
- 
+import './App.css';
+import Operacion from './components/operacion/operacionContainer'; 
 //const saludar = () => <h3>Saludo al mundo</h3>
 
 class App extends Component {
@@ -14,7 +12,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Operacion getResultado={this.getResultado}/>
+        <Operacion/>
       </div>
     );
   }
