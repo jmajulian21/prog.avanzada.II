@@ -17,29 +17,28 @@ class Operacion extends Component{
                 <button onClick={this.multiplicar}>Multiplicar</button>
                 <br/>
                 <br/>
-                Resultado: <input type='text' />
+                Resultado: <input type='text' defaultValue={this.state.resultado}/>
             </div>
         )
     }
+
+    // Para input de tipo text que utiliza onchage se usa la variable value para caso contrario defaultValue
     sumar = event => {
         event.preventDefault();
-        console.log(Number(this.props.Nro1) + Number(this.props.Nro2))
+        this.setState({resultado:Number(this.props.Nro1) + Number(this.props.Nro2)})
+        
     }
     restar = event => {
         event.preventDefault();
-        console.log(Number(this.props.Nro1) - Number(this.props.Nro2))
+        this.setState({resultado:Number(this.props.Nro1) - Number(this.props.Nro2)})
     }
     dividir = event => {
         event.preventDefault();
-        console.log(Number(this.props.Nro1) / Number(this.props.Nro2))
+        this.setState({resultado:Number(this.props.Nro1) / Number(this.props.Nro2)})
     }
     multiplicar = event => {
         event.preventDefault();
-        console.log(Number(this.props.Nro1) * Number(this.props.Nro2))
+        this.setState({resultado:Number(this.props.Nro1) * Number(this.props.Nro2)})
     }
-
-
-    //value={this.state.resultado}></input>
-    //Number(this.props.Nro1) + Number(this.props.Nro2)
 }
 export default Operacion;
