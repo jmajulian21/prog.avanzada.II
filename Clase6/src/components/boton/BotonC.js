@@ -7,7 +7,7 @@ class BotonC extends Component {
   render() {
     return (
       <div>
-        <Boton variant="outlined"/>
+        <Boton {...this.props}/>
       </div>
     );
   }

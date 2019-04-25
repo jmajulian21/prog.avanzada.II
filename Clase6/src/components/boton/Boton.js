@@ -7,9 +7,12 @@ class Boton extends Component {
   render() {
     return (
       <div>
-        <Button variant={this.props.variant||"contained"} color="primary" disabled={false}>
-            Hello World
+        <Button variant={this.props.variant||"contained"} 
+                color={this.props.color||"primary"} 
+                disabled={false}
+                children={this.props.value}>
         </Button>
+        
       </div>
     );
   }
