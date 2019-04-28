@@ -6,7 +6,7 @@ class History extends Component {
         return(
             <div>
                 <Grid container style={{ padding: 10 }}>
-                    <Grid item xs={4}>
+                    <Grid item xs={5}>
                         <img src='/img/portada.jpg'/>
                     </Grid>
                     <Grid item xs={4}>

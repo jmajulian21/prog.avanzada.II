@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import TextField from '@material-ui/core/TextField';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
+import { Grid,Paper,TextField } from '@material-ui/core';
 
 class Adicional extends Component {
   render() {

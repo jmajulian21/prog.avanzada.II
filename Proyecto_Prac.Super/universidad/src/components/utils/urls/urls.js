@@ -5,6 +5,7 @@ import History from '../../home/history/History';
 import Persona from '../../persona/personaC';
 import Alumno from '../../alumno/alumnoC';
 import Profesor from '../../profesor/profesorC';
+import Login from '../../login/loginC';
 
 const Inicio = () => <h1>Inicio</h1>
 
@@ -17,7 +18,8 @@ class Urls extends Component {
               <Route exact path='/alumnos/gestion' component={Alumno}/>
               <Route exact path='/profesores/gestion' component={Profesor}/>
               <Route exact path='/personas/persona' component={Persona}/>
-              
+              <Route exact path='/login' component={Login}/>
+
               <Redirect to='/inicio'/>
             </Switch>
     );

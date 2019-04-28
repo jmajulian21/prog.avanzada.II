@@ -16,7 +16,7 @@ class Menu extends Component {
                                 <Button color="inherit" href='/profesores/gestion' >Profesor</Button>
                             </Grid>
                             <Grid item xs={1}>
-                                <Button color="inherit">Login</Button>
+                                <Button color="inherit" href='/login'>Login</Button>
                             </Grid>
                         </Grid>
                     </Toolbar>
