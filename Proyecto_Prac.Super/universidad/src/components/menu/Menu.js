@@ -1,16 +1,27 @@
 import React, { Component } from 'react';
-import {NavLink} from 'react-router-dom';
-
+import { Grid,Button,Toolbar,AppBar } from '@material-ui/core';
 
 class Menu extends Component {
     render() {
         return(
             <div>
-                <NavLink exact to='/home' activeClassName="active">Home</NavLink>
-                <NavLink exact to='/history' activeClassName="active">Historia</NavLink>
-                <NavLink exact to='/personas/persona' activeClassName="active">Persona</NavLink>
-                <NavLink exact to='/alumnos/gestion' activeClassName="active">Alumno</NavLink>
-                <NavLink exact to='/profesores/gestion' activeClassName="active">Profesor</NavLink>
+                <AppBar position="static">
+                    <Toolbar>
+                        <Grid container>
+                            <Grid item xs={11}>
+                                <Button color="inherit" href='/inicio'>Inicio</Button>
+                                <Button color="inherit" href='/history' >Historia</Button>
+                                <Button color="inherit" href='/personas/persona' >Persona</Button>
+                                <Button color="inherit" href='/alumnos/gestion' >Alumno</Button>
+                                <Button color="inherit" href='/profesores/gestion' >Profesor</Button>
+                            </Grid>
+                            <Grid item xs={1}>
+                                <Button color="inherit">Login</Button>
+                            </Grid>
+                        </Grid>
+                    </Toolbar>
+                </AppBar>
+ 
             </div>
         )
     }

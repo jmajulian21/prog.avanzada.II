@@ -3,7 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
-class Profesor extends Component {
+class Adicional extends Component {
   render() {
     return (
       <div style={{ padding: 10}}>
@@ -11,10 +11,10 @@ class Profesor extends Component {
           <Grid item xs='11'>
           <Paper style={{ border: '1px solid black', 'border-radius':'5px'}}>
             <Grid item xs={11}>
-              <h3>Datos Profesor</h3>
-              <TextField disabled style={{ marginLeft: 10 ,marginRight: 10}} id="standard-uncontrolled" label="Legajo" value="12345"/>
-              <TextField style={{ marginLeft: 10 ,marginRight: 10, marginBottom:10}} id="standard-uncontrolled" label="Egresado De" />
-              <TextField style={{ marginLeft: 10 ,marginRight: 10, marginBottom:10}} id="standard-uncontrolled" label="Titulo" />
+              <h3>Datos Adicionales</h3>
+              <TextField style={{ marginLeft: 10 ,marginRight: 10}} id="standard-uncontrolled" label="Nro.Telefono"/>
+              <TextField style={{ marginLeft: 10 ,marginRight: 10, marginBottom:10}} id="standard-uncontrolled" label="Nro.Celular" />
+              <TextField style={{ marginLeft: 10 ,marginRight: 10, marginBottom:10}} id="standard-uncontrolled" label="Email" />
             </Grid> 
            </Paper>
            </Grid>
@@ -24,4 +24,4 @@ class Profesor extends Component {
   }
 }
 
-export default Profesor;
+export default Adicional;
