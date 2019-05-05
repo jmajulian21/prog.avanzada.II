@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid,Paper,TextField,Button,Table,TableHead,TableRow,TableCell,TableBody,Menu,MenuItem } from '@material-ui/core';
+import { Grid,Paper,TextField,Button,Table,TableHead,TableRow,TableCell,TableBody,Checkbox } from '@material-ui/core';
 
 const grado = [{value: 1 , label: '1A'},
                {value: 2 , label: '1B'},
@@ -31,7 +31,7 @@ const rows = [createData(123, "Moreno", "Julian","1A"),
               createData(126, "Ibañez", "Brian","1A"),
               createData(127, "Peralta", "Rosa","1A")];
               
-class Consulta extends Component {
+class Asistencias extends Component {
   render() {
     return (
     <div style={{ padding: 10}}>
@@ -40,7 +40,6 @@ class Consulta extends Component {
            <Paper style={{ border: '1px solid black', 'border-radius':'5px'}}>
              <Grid item xs>
                <h3>Filtos de Buesqueda</h3>
-               <TextField variant='outlined' style={{ marginLeft: 10 ,marginRight: 10}} id="standard-uncontrolled" label="Legajo Alumno"/>
                <TextField variant='outlined' style={{ marginLeft: 10 ,marginRight: 10}} select id="outlined-select-currency-native" label="Carrera" SelectProps={{native: true}}>
                   {especialidad.map(option => (
                     <option key={option.value} value={option.value}>
@@ -62,6 +61,12 @@ class Consulta extends Component {
                     </option>
                   ))}
               </TextField>
+              <TextField variant='outlined' id="date" label="Fecha Materia" type="date"
+        defaultValue="2019-05-07"
+        InputLabelProps={{
+          shrink: true,
+        }}
+      />
               <Button variant="contained">Buscar</Button>
                <Grid container direction="row">
                   <Grid item xs={6} style={{padding: 10 }}>
@@ -99,7 +104,7 @@ class Consulta extends Component {
               <TableCell >{row.apellido}</TableCell>
               <TableCell >{row.nombre}</TableCell>
               <TableCell >{row.grado}</TableCell>
-              <TableCell ></TableCell>
+              <TableCell ><Checkbox/></TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -114,4 +119,4 @@ class Consulta extends Component {
   }
 }
 
-export default Consulta;
+export default Asistencias;

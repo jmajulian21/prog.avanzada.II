@@ -13,7 +13,7 @@ class Menu extends Component {
                                 <Button color="inherit" href='/history' >Historia</Button>
                                 <Button color="inherit" href='/alumnos/gestion' >Alumno</Button>
                                 <Button color="inherit" href='/profesores/gestion' >Profesor</Button>
-                                <Button color="inherit" href='/consulta' >Consulta</Button>
+                                <Button color="inherit" href='/asistencias'>Asistencias</Button>
                             </Grid>
                             <Grid item xs={1}>
                                 <Button color="inherit" href='/login'>Login</Button>

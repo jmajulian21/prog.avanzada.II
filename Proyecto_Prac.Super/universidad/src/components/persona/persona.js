@@ -9,16 +9,16 @@ const sexo = [{value:'F' , label: 'Femenino'},
               {value:'M' , label: 'Masculino'}];
 
 const localidad = [{value:'1' , label: 'Ezeiza'},
-                   {value:'1' , label: 'El Jaguel'},
-                   {value:'1' , label: 'Monte Grande'},
-                   {value:'1' , label: 'Luis Guillon'},
-                   {value:'1' , label: 'Lavallol'},
-                   {value:'1' , label: 'Turdera'},
-                   {value:'1' , label: 'Temperley'},
-                   {value:'1' , label: 'Lomas de Zamora'},
-                   {value:'1' , label: 'Banfield'},
-                   {value:'1' , label: 'Lanus'},
-                   {value:'2' , label: 'Avellaneda'}];
+                   {value:'2' , label: 'El Jaguel'},
+                   {value:'3' , label: 'Monte Grande'},
+                   {value:'4' , label: 'Luis Guillon'},
+                   {value:'5' , label: 'Lavallol'},
+                   {value:'6' , label: 'Turdera'},
+                   {value:'7' , label: 'Temperley'},
+                   {value:'8' , label: 'Lomas de Zamora'},
+                   {value:'9' , label: 'Banfield'},
+                   {value:'10' , label: 'Lanus'},
+                   {value:'12' , label: 'Avellaneda'}];
 
 class Persona extends Component {
   render() {
@@ -27,7 +27,7 @@ class Persona extends Component {
       <div style={{ padding: 10}}>
         
           <Grid container direction="column">
-          <Grid item xs='11'>
+          <Grid item xs={11}>
           <Paper style={{ border: '1px solid black', 'border-radius':'5px'}}>
             <Grid item xs={11}>
               <h3>Datos Personales</h3>

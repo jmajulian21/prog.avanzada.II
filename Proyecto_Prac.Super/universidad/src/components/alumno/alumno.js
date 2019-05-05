@@ -9,7 +9,7 @@ class Alumno extends Component {
     return (
       <div style={{ padding: 10}}>
         <Grid container direction="column">
-          <Grid item xs='11'>
+          <Grid item xs={11}>
           <Paper style={{ border: '1px solid black', 'border-radius':'5px'}}>
             <Grid item xs={11}>
               <h3>Datos Alumno</h3>
@@ -24,9 +24,10 @@ class Alumno extends Component {
                   ))}
               </TextField>
             </Grid> 
-           </Paper>
-           </Grid>
+            </Paper>
           </Grid>
+          
+        </Grid>
       </div>
     );
   }
