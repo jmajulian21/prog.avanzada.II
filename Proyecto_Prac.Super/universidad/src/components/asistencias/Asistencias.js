@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Grid,Paper,TextField,Button,Table,TableHead,TableRow,TableCell,TableBody,Checkbox } from '@material-ui/core';
+import "./style.css";
 
 const grado = [{value: 1 , label: '1A'},
                {value: 2 , label: '1B'},
@@ -34,10 +35,10 @@ const rows = [createData(123, "Moreno", "Julian","1A"),
 class Asistencias extends Component {
   render() {
     return (
-    <div style={{ padding: 10}}>
+    <div className="estilo">
         <Grid container direction="column">
            <Grid item xs={10}>
-           <Paper style={{ border: '1px solid black', 'border-radius':'5px'}}>
+           <Paper >
              <Grid item xs>
                <h3>Filtos de Buesqueda</h3>
                <TextField variant='outlined' style={{ marginLeft: 10 ,marginRight: 10}} select id="outlined-select-currency-native" label="Carrera" SelectProps={{native: true}}>
@@ -70,7 +71,7 @@ class Asistencias extends Component {
               <Button variant="contained">Buscar</Button>
                <Grid container direction="row">
                   <Grid item xs={6} style={{padding: 10 }}>
-                    <Paper style={{ border: '1px solid black', 'border-radius':'5px',"margin-right":"10px",padding: 10 }}>
+                    <Paper style={{ border: '1px solid black', 'borderRadius':'5px',"marginRight":"10px",padding: 10 }}>
                           <h5>Exportar Planillas</h5>
                           <Button variant="contained">Asistencias</Button>
                     </Paper>    
@@ -85,7 +86,7 @@ class Asistencias extends Component {
 
            <Grid container direction="column">
             <Grid item xs={10}>
-                <Paper style={{ border: '1px solid black', 'border-radius':'5px'}}>
+                <Paper style={{ border: '1px solid black', 'borderRadius':'5px'}}>
                     <Grid item xs={11}>
                         <Table>
                             <TableHead>

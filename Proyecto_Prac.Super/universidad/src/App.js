@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <div>
-            <MenuContainer/>
+            <MenuContainer {...this.props}/>
             <Urls/>
       </div>
     );

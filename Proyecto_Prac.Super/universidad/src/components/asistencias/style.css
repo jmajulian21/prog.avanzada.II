@@ -1,0 +1,14 @@
+div {
+    padding: 10px;
+}
+
+/* Paper{
+    border: 1px solid black !important; 
+    border-Radius: 5px;
+} */
+
+.MuiGrid-grid-xs-true-69 {
+    border: 1px solid black !important; 
+    border-Radius: 5px;
+    /* background-color: red; */
+}
