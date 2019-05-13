@@ -12,7 +12,7 @@ class Tabla extends Component {
     }
     editarOnClick = (event, id) => {
         this.setState({ selected: id });
-        this.props.history.push("/personas/id:"+id);
+        this.props.history.push("/personas?id="+id);
       };
 
     eliminarOnClick = (event, id) => {
