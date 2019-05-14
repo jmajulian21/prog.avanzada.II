@@ -7,7 +7,7 @@ import { Grid,Button } from '@material-ui/core';
 class altaProfesor extends Component {
   render() {
     return (
-      <div style={{ padding: 10}}>
+      <div>
             <Persona/>
             <Profesor/>
             <Adicional/>

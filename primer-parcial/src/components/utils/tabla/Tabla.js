@@ -10,13 +10,15 @@ class Tabla extends Component {
             idSeleccionado:0
         }
     }
+
     editarOnClick = (event, id) => {
         this.setState({ selected: id });
         this.props.history.push("/personas?id="+id);
       };
 
     eliminarOnClick = (event, id) => {
-        this.setState({ selected: id });
+        console.log("Se elimina id"+id);
+        this.props.onDelete(id);
       };
 
     render() {

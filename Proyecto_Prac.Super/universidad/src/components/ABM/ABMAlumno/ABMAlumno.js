@@ -3,22 +3,24 @@ import Persona from '../../persona/personaC';
 import Alumno from '../../alumno/alumnoC';
 import Adicional from '../../datosAdicionales/adicionalC';
 import { Grid,Button } from '@material-ui/core';
+import {styles} from '../../utils/css/styles';
+import { withStyles } from '@material-ui/core/styles';
 
 class AlumnoC extends Component {
   render() {
     return (
-      <div style={{ padding: 10}}>
+      <div>
         <Persona/>
         <Alumno/>
         <Adicional/>
       <Grid container direction="row">
         <Grid item xs={11}>
           <Grid container direction="row">
-              <Grid item xs={10}/>
-              <Grid item xs={1}>
+              <Grid item xs={8}/>
+              <Grid item xs={2}>
                   <Button variant="contained" color="primary">Cancelar</Button>
               </Grid>
-              <Grid item xs={1}>
+              <Grid item xs={2}>
                   <Button variant="contained" color="primary">Aceptar</Button>
               </Grid>
           </Grid>
@@ -29,4 +31,4 @@ class AlumnoC extends Component {
   }
 }
 
-export default AlumnoC;
+export default withStyles(styles)(AlumnoC);

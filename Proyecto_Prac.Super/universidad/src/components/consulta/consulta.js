@@ -34,7 +34,7 @@ const rows = [createData(123, "Moreno", "Julian","1A"),
 class Consulta extends Component {
   render() {
     return (
-    <div style={{ padding: 10}}>
+    <div>
         <Grid container direction="column">
            <Grid item xs={10}>
            <Paper style={{ border: '1px solid black', 'border-radius':'5px'}}>

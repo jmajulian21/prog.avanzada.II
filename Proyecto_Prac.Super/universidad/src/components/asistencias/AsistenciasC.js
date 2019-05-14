@@ -5,9 +5,7 @@ import "./style.css";
 class AsistenciasC extends Component {
   render() {
     return (
-      <div >
           <Asistencias/>  
-      </div>
     );
   }
 }

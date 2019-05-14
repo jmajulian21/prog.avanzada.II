@@ -7,7 +7,7 @@ const especialidad = [{value:'P' , label: 'Tec. Sup. en Programacion'},
 class Alumno extends Component {
   render() {
     return (
-      <div style={{ padding: 10}}>
+      <div>
         <Grid container direction="column">
           <Grid item xs={11}>
           <Paper style={{ border: '1px solid black', 'border-radius':'5px'}}>
