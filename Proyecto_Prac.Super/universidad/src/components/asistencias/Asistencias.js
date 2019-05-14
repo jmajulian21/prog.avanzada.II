@@ -8,6 +8,7 @@ function createData(legajo, apellido, nombre, grado) {
     id += 1;
 return { id, legajo, apellido, nombre, grado  };
 }
+
 const rows = [createData(123, "Moreno", "Julian","1A"),
               createData(124, "Perez", "Juan","1A"),
               createData(125, "Torres", "Ana Maria","1A"),
@@ -76,8 +77,7 @@ class Asistencias extends Component {
                                     <TableCell>Legajo</TableCell>
                                     <TableCell>Apellido</TableCell>
                                     <TableCell>Nombres</TableCell>
-                                    <TableCell>Grado</TableCell>
-                                    <TableCell>Detalle</TableCell>
+                                    <TableCell>Asistencia</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
@@ -86,7 +86,6 @@ class Asistencias extends Component {
               <TableCell > {row.legajo}</TableCell>
               <TableCell >{row.apellido}</TableCell>
               <TableCell >{row.nombre}</TableCell>
-              <TableCell >{row.grado}</TableCell>
               <TableCell ><Checkbox/></TableCell>
             </TableRow>
           ))}
@@ -95,6 +94,7 @@ class Asistencias extends Component {
                         
                     </Grid> 
                 </Paper>
+                <Button variant="contained">Aceptar</Button>
                 </Grid>
            </Grid>
        </div>

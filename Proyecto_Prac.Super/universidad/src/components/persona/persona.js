@@ -4,10 +4,8 @@ import {localidad,tipoDoc,sexo} from '../../datos/datos';
 
 class Persona extends Component {
   render() {
-    
     return (
       <div>
-        
           <Grid container direction="column">
           <Grid item xs={11}>
           <Paper style={{ border: '1px solid black', 'border-radius':'5px'}}>
