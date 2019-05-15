@@ -13,20 +13,34 @@ class ListaPersona extends Component {
       { id: 2, nombre: "Hernan P.", email: "julian.moreno@hotmail.com", sueldo: "27000" }]
     }
     this.eliminarRow = this.eliminarRow.bind(this);
+    this.editarRow = this.editarRow.bind(this);
+    this.agregarRow = this.agregarRow.bind(this);
   }
 
-  eliminarRow (id) {
+  eliminarRow(id) {
     let temp = [...this.state.rows];
     temp = temp.filter(row => row.id === id);
-    this.setState({rows: temp});
+    this.setState({ rows: temp });
+  }
+
+  editarRow(id, nombre, email, sueldo) {
+    let temp = [...this.state.rows];
+    const index = temp.findIndex((item) => item.id === id);
+    temp[index] = { id: id, nombre: nombre, email: email, sueldo: sueldo };
+    this.setState({ rows: temp });
+  }
+
+  agregarRow(id, nombre, email, sueldo) {
+    let temp = [...this.state.rows];
+    temp.push({ id: id, nombre: nombre, email: email, sueldo: sueldo });
+    this.setState({ rows: temp });
   }
 
   render() {
     return (
       <div>
-        <Router>
-          <Tabla headers={headers} rows={this.state.rows} onDelete={this.eliminarRow}/>
-        </Router>
+          <Tabla headers={headers} rows={this.state.rows} onDelete={this.eliminarRow} 
+                                                            onEdit={this.editarRow}/>
       </div>
     );
   }

@@ -4,8 +4,7 @@ import Menu from './components/utils/menu/MenuC';
 import {BrowserRouter as Router} from 'react-router-dom';
 import Urls from './components/utils/urls/Urls'
 
-let menuItems = [{id:1,label:"Listar",url:"/personas"},
-                 {id:2,label:"Cargar",url:"/personas/alta"}]
+let menuItems = [{id:1,label:"Lista",url:"/personas"}]
 
 function App() {
   return (

@@ -1,2 +1,0 @@
-export let rows = [{ id: 1, nombre: "Julian M.", email: "julian.moreno@hotmail.com", sueldo: "23432" },
-                   { id: 2, nombre: "Hernan P.", email: "julian.moreno@hotmail.com", sueldo: "27000" }]
