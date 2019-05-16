@@ -16,7 +16,6 @@ export default class Form extends Component{
 
     handleChange = (e,prop) => {
         let valor = e.target.value;
-        //this.setState({[prop]: valor.toUpperCase()});
         this.setState({[prop]: valor.charAt(0).toUpperCase() + valor.slice(1)});
     }
 
