@@ -64,7 +64,7 @@ class ABMNotas extends Component {
                       <TableCell>Primer Parcial</TableCell>
                       <TableCell>Rec. Primer Parcial</TableCell>
                       <TableCell>Segundo Parcial</TableCell>
-                      <TableCell>Rec. Primer Parcial</TableCell>
+                      <TableCell>Rec. Segundo Parcial</TableCell>
                       <TableCell>Final</TableCell>
                     </TableRow>
                   </TableHead>

@@ -20,10 +20,9 @@ class Menu extends Component {
                                 <Button color="inherit" onClick={() => this.ir("/asistencias")}>Asistencias</Button>
                                 <Button color="inherit" onClick={() => this.ir("/consulta/materias")}>Consulta Materia</Button>
                                 <Button color="inherit" onClick={() => this.ir("/profesores/profesor/notas")}>Registrar Notas</Button>
-                                
                             </Grid>
                             <Grid item xs={1}>
-                                <Button color="inherit" href='/login'>Login</Button>
+                                <Button color="inherit" onClick={() => this.ir("/login")}>Login</Button>
                             </Grid>
                         </Grid>
                     </Toolbar>

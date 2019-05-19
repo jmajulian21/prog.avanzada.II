@@ -8,6 +8,7 @@ import ABMNotas from '../../ABM/ABMNotas/ABMNotas';
 import Login from '../../login/loginC';
 import Asistencias from '../../asistencias/AsistenciasC';
 import ConsultaMateria from '../../consulta/materia/consultaC';
+import Materia from '../../materia/MateriaC';
 
 const Inicio = () => <h1>Facultad de Ciencia</h1>
 
@@ -23,6 +24,7 @@ class Urls extends Component {
               <Route exact path='/login' component={Login}/>
               <Route exact path='/asistencias' component={Asistencias}/>
               <Route exact path='/consulta/materias' component={ConsultaMateria}/>
+              <Route exact path='/consulta/materias/materia' component={Materia}/>
 
               <Redirect to='/inicio'/>
             </Switch>

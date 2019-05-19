@@ -17,45 +17,45 @@ export const materia = [{value: 1 , label: 'Matemática'},
         {value: 6 , label: 'Metodologia de Invest.'},
         {value: 7 , label: 'Org. Empresarial'}];
 
-export const materiasUNO = [{value: 1 , label: 'Matemática'},
-        {value: 2 , label: 'Sistema de Procesamiento de Datos'},
-        {value: 3 , label: 'Inglés'},
-        {value: 4 , label: 'Programación I'},
-        {value: 5 , label: 'Laboratorio de Computación I'}];
+export const materiasUNO = [{value: 8 , label: 'Matemática'},
+        {value: 9 , label: 'Sistema de Procesamiento de Datos'},
+        {value: 10 , label: 'Inglés'},
+        {value: 11 , label: 'Programación I'},
+        {value: 12 , label: 'Laboratorio de Computación I'}];
 
-export const materiasDOS = [{value: 1 , label: 'Arquitectura y Sistemas Operativos'},
-        {value: 2 , label: 'Estadística'},
-        {value: 3 , label: 'Inglés II'},
-        {value: 4 , label: 'Programación II'},
-        {value: 5 , label: 'Laboratorio de Computación II'},
-        {value: 6 , label: 'Metodología de La Investigación'}];
+export const materiasDOS = [{value: 13 , label: 'Arquitectura y Sistemas Operativos'},
+        {value: 14 , label: 'Estadística'},
+        {value: 15 , label: 'Inglés II'},
+        {value: 16 , label: 'Programación II'},
+        {value: 17 , label: 'Laboratorio de Computación II'},
+        {value: 18 , label: 'Metodología de La Investigación'}];
 
-export const materiasTRES = [{value: 1 , label: 'Elementos de Investigación Operativa'},
-        {value: 2 , label: 'Programación III'},
-        {value: 3 , label: 'Laboratorio de Computación III'},
-        {value: 4 , label: 'Organización Contable de la Empresa'},
-        {value: 5 , label: 'Organización Empresarial'}];
+export const materiasTRES = [{value: 19 , label: 'Elementos de Investigación Operativa'},
+        {value: 20 , label: 'Programación III'},
+        {value: 21 , label: 'Laboratorio de Computación III'},
+        {value: 22 , label: 'Organización Contable de la Empresa'},
+        {value: 23 , label: 'Organización Empresarial'}];
 
-export const materiaCUATRO = [{value: 1 , label: 'Diseño y Administración de Bases de Datos'},
-        {value: 2 , label: 'Laboratorio de Computación IV'},
-        {value: 3 , label: 'Legislación'},
-        {value: 4 , label: 'Metodología de Sistemas I'}];
+export const materiaCUATRO = [{value: 24 , label: 'Diseño y Administración de Bases de Datos'},
+        {value: 25 , label: 'Laboratorio de Computación IV'},
+        {value: 26 , label: 'Legislación'},
+        {value: 27 , label: 'Metodología de Sistemas I'}];
 
-export const materiaCINCO = [{value: 1 , label: 'Metodología de Sistemas II'},
-        {value: 2 , label: 'Programación Avanzada I'},
-        {value: 3 , label: 'Laboratorio de Computación V'},
-        {value: 4 , label: 'Bases de Datos II'},
-        {value: 5 , label: 'Matemática II'},
-        {value: 6 , label: 'Redes'},
-        {value: 7 , label: 'Inglés Técnico Avanzado I'}];
+export const materiaCINCO = [{value: 28 , label: 'Metodología de Sistemas II'},
+        {value: 29 , label: 'Programación Avanzada I'},
+        {value: 30 , label: 'Laboratorio de Computación V'},
+        {value: 31 , label: 'Bases de Datos II'},
+        {value: 32 , label: 'Matemática II'},
+        {value: 33 , label: 'Redes'},
+        {value: 34 , label: 'Inglés Técnico Avanzado I'}];
 
-export const materiaSEIS = [{value: 1 , label: 'Administración y dirección de Proyectos Informáticos'},
-        {value: 2 , label: 'Metodología de Sistemas III'},
-        {value: 3 , label: 'Investigación Operativa II'},
-        {value: 4 , label: 'Inglés Técnico Avanzado II'},
-        {value: 5 , label: 'Matemática III'},
-        {value: 6 , label: 'Programación Avanzada II'},
-        {value: 6 , label: 'Seminario'}];
+export const materiaSEIS = [{value: 35 , label: 'Administración y dirección de Proyectos Informáticos'},
+        {value: 36 , label: 'Metodología de Sistemas III'},
+        {value: 37 , label: 'Investigación Operativa II'},
+        {value: 38 , label: 'Inglés Técnico Avanzado II'},
+        {value: 39 , label: 'Matemática III'},
+        {value: 40 , label: 'Programación Avanzada II'},
+        {value: 41 , label: 'Seminario'}];
 
 export const tipoDoc = [{value: 1 , label: 'DNI'},
         {value: 2 , label: 'CUIL'},
@@ -75,3 +75,9 @@ export const localidad = [{value:'1' , label: 'Ezeiza'},
           {value:'9' , label: 'Banfield'},
           {value:'10' , label: 'Lanus'},
           {value:'12' , label: 'Avellaneda'}];
+
+export const rows = [{id:'123',legajo:'123', apellido:'Moreno', nombre:'Julian'},
+          {id:'124',legajo:'124', apellido:'Perez', nombre:'Juan'},
+          {id:'125',legajo:'125', apellido:'Torres', nombre:'Ana Maria'},
+          {id:'126',legajo:'126', apellido:'Ibañez', nombre:'Brian'},
+          {id:'127',legajo:'127', apellido:'Peralta', nombre:'Rosa'}];

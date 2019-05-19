@@ -7,6 +7,11 @@ const especialidad = [{ value: 'P', label: 'Tec. Sup. en Programacion' },
 { value: 'A', label: 'Tec. Sup. en Sistemas' }];
 
 class Consulta extends Component {
+
+  ir = to => {
+    this.props.history.push(to);
+}
+
   render() {
     return (
       <div>
@@ -48,7 +53,7 @@ class Consulta extends Component {
                           <TableCell > {row.value}</TableCell>
                           <TableCell >{row.label}</TableCell>
                           <TableCell >
-                            <IconButton >
+                            <IconButton href="/consulta/materias/materia" >
                               <SearchIcon />
                             </IconButton>
                           </TableCell>
