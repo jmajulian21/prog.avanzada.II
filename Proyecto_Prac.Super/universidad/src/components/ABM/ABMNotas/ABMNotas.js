@@ -74,7 +74,7 @@ class ABMNotas extends Component {
                         <TableCell > {row.legajo}</TableCell>
                         <TableCell >{row.apellido}</TableCell>
                         <TableCell >{row.nombre}</TableCell>
-                        <TableCell ><TextField disabled id="standard-uncontrolled"/></TableCell>
+                        <TableCell ><TextField id="standard-uncontrolled"/></TableCell>
                         <TableCell ><TextField id="standard-uncontrolled"/></TableCell>
                         <TableCell ><TextField id="standard-uncontrolled"/></TableCell>
                         <TableCell ><TextField id="standard-uncontrolled"/></TableCell>

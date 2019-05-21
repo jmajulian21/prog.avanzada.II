@@ -20,6 +20,7 @@ class Menu extends Component {
                                 <Button color="inherit" onClick={() => this.ir("/asistencias")}>Asistencias</Button>
                                 <Button color="inherit" onClick={() => this.ir("/consulta/materias")}>Consulta Materia</Button>
                                 <Button color="inherit" onClick={() => this.ir("/profesores/profesor/notas")}>Registrar Notas</Button>
+                                <Button color="inherit" onClick={() => this.ir("/materias/asignacion")}>Asignacion Materia</Button>
                             </Grid>
                             <Grid item xs={1}>
                                 <Button color="inherit" onClick={() => this.ir("/login")}>Login</Button>
