@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Paper, TextField, Button, Table, TableHead, TableRow, FormGroup, TableCell, FormControlLabel, TableBody, Checkbox } from '@material-ui/core';
-import { grado, especialidad } from '../../../datos/datos';
+import { grado, especialidad,materia } from '../../../datos/datos';
 
 class Asignacion extends Component {
     render() {
@@ -19,8 +19,23 @@ class Asignacion extends Component {
                                     ))}
                                 </TextField>
 
-                                <TextField variant="filled" label="Materia" />
+                                <TextField variant='outlined' style={{ marginLeft: 10, marginRight: 10 }} select id="outlined-select-currency-native" label="Materia" SelectProps={{ native: true }}>
+                                    {materia.map(option => (
+                                        <option key={option.value} value={option.value}>
+                                            {option.label}
+                                        </option>
+                                    ))}
+                                </TextField>
 
+                                <TextField variant='outlined' style={{ marginLeft: 10, marginRight: 10 }} select id="outlined-select-currency-native" label="Curso" SelectProps={{ native: true }}>
+                                    {grado.map(option => (
+                                        <option key={option.value} value={option.value}>
+                                            {option.label}
+                                        </option>
+                                    ))}
+                                </TextField>
+                                
+                                <TextField id="filled-name" variant="filled" label="Año" />
                                 <FormGroup row>
                                     <FormControlLabel
                                         control={

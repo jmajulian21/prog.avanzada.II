@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { Grid, TextField, TableHead, TableRow, TableCell, Table, TableBody } from '@material-ui/core';
 import { styles } from '../utils/css/styles';
-import { rows } from '../../datos/datos'
+import { rows } from '../../datos/datos';
 
 
 class Materia extends Component {
@@ -26,6 +26,7 @@ class Materia extends Component {
           </Grid>
         </Grid>
         <Grid container direction="column">
+        <h3>Alumnos Inscriptos</h3>
                 <Grid item xs>
                   <Grid item xs>
                     <Table>

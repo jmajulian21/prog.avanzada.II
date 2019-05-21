@@ -12,7 +12,7 @@ createData(124, "Perez", "Juan", "1A"),
 createData(125, "Torres", "Ana Maria", "1A"),
 createData(126, "Ibañez", "Brian", "1A"),
 createData(127, "Peralta", "Rosa", "1A")];
-
+//Status alumno: Aprobado - Desaprobado - Aprobado Directo - Libre
 class ABMNotas extends Component {
   render() {
     return (
@@ -66,6 +66,7 @@ class ABMNotas extends Component {
                       <TableCell>Segundo Parcial</TableCell>
                       <TableCell>Rec. Segundo Parcial</TableCell>
                       <TableCell>Final</TableCell>
+                      <TableCell>Status Alumno</TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -79,6 +80,7 @@ class ABMNotas extends Component {
                         <TableCell ><TextField id="standard-uncontrolled"/></TableCell>
                         <TableCell ><TextField id="standard-uncontrolled"/></TableCell>
                         <TableCell ><TextField id="standard-uncontrolled"/></TableCell>
+                        <TableCell >DESAPROBADO</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
