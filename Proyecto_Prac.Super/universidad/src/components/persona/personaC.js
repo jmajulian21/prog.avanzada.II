@@ -5,7 +5,7 @@ class PersonaC extends Component {
   render() {
     return (
       <div>
-          <Persona/>  
+          <Persona {...this.props}/>  
       </div>
     );
   }

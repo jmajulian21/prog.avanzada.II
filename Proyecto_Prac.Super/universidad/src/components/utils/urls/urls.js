@@ -10,6 +10,8 @@ import Asistencias from '../../asistencias/AsistenciasC';
 import ConsultaMateria from '../../consulta/materia/consultaC';
 import Materia from '../../materia/MateriaC';
 import Asignacion from '../../materia/asignacion/AasignacionC';
+import Carrera from '../../ABM/ABMCarrera/CarreraC';
+import MateriaAlta from '../../ABM/ABMMateria/MateriaC';
 
 const Inicio = () => <h1>Facultad de Ciencia</h1>
 
@@ -27,6 +29,8 @@ class Urls extends Component {
               <Route exact path='/consulta/materias' component={ConsultaMateria}/>
               <Route exact path='/consulta/materias/materia' component={Materia}/>
               <Route exact path='/materias/asignacion' component={Asignacion}/>
+              <Route exact path='/carreras/gestion' component={Carrera}/>
+              <Route exact path='/materias/gestion' component={MateriaAlta}/>
 
               <Redirect to='/inicio'/>
             </Switch>
