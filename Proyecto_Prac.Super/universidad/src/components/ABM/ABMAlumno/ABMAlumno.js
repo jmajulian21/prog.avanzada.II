@@ -11,12 +11,29 @@ class AlumnoC extends Component {
   constructor(props){
     super(props);
     this.state = {
-        persona:[]
+        persona:[],
+        alumno:[],
+        adicional:[]
     }
     this.agregarPersona = this.agregarPersona.bind(this);
+    this.db1 = app.database().ref().child('persona');
+    this.db2 = app.database().ref().child('alumno');
+    this.db3 = app.database().ref().child('adicional');
 }
 agregarPersona(id, nombres, apellido,tipoDoc,nroDoc,fechNacimiento,sexo,direccion,piso,codPostal,localidad) {
-    this.db.push().set({id:id, 
+  this.db1.push().set({id:id, 
+    nombres:nombres,
+    apellido:apellido ,
+    tipoDoc:tipoDoc ,
+    nroDoc:nroDoc ,
+    fechNacimiento:fechNacimiento ,
+    sexo:sexo ,
+    direccion:direccion ,
+    piso:piso,
+    codPostal:codPostal,
+    localidad:localidad});
+
+    this.db2.push().set({id:id, 
       nombres:nombres,
       apellido:apellido ,
       tipoDoc:tipoDoc ,
@@ -27,15 +44,38 @@ agregarPersona(id, nombres, apellido,tipoDoc,nroDoc,fechNacimiento,sexo,direccio
       piso:piso,
       codPostal:codPostal,
       localidad:localidad});
+
+      this.db3.push().set({id:id, 
+        nombres:nombres,
+        apellido:apellido ,
+        tipoDoc:tipoDoc ,
+        nroDoc:nroDoc ,
+        fechNacimiento:fechNacimiento ,
+        sexo:sexo ,
+        direccion:direccion ,
+        piso:piso,
+        codPostal:codPostal,
+        localidad:localidad});
   }
 
   componentDidMount(){
-    this.db = app.database().ref().child('persona');
       const {persona} = this.state;
-      this.db.on('child_added', snap => {
+      this.db1.on('child_added', snap => {
       persona.push({id: snap.key})
       });
       this.setState({persona});
+
+      const {alumno} = this.state;
+      this.db2.on('child_added', snap => {
+        alumno.push({id: snap.key})
+      });
+      this.setState({alumno});
+
+      const {adicional} = this.state;
+      this.db3.on('child_added', snap => {
+        adicional.push({id: snap.key})
+      });
+      this.setState({adicional});
   }
 
   render() {
