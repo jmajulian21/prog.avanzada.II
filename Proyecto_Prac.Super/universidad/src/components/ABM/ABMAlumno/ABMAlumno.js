@@ -14,8 +14,9 @@ class AlumnoC extends Component {
 }
 
   onAgregar = () => {
-    console.log(dtoPersona);
-    console.log(dtoAlumno);
+     
+    //console.log(dtoPersona);
+    //console.log(dtoAlumno);
   }
   render() {
     return (
