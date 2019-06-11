@@ -4,9 +4,7 @@ import Persona from './persona';
 class PersonaC extends Component {
   render() {
     return (
-      <div>
-          <Persona {...this.props}/>  
-      </div>
+      <Persona item={this.props.item}/>  
     );
   }
 }

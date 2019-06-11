@@ -81,3 +81,8 @@ export const rows = [{id:'123',legajo:'123', apellido:'Moreno', nombre:'Julian'}
           {id:'125',legajo:'125', apellido:'Torres', nombre:'Ana Maria'},
           {id:'126',legajo:'126', apellido:'Ibañez', nombre:'Brian'},
           {id:'127',legajo:'127', apellido:'Peralta', nombre:'Rosa'}];
+
+export const fecha = [{value:'11/06/2019',label:'11/06/2019'},
+                      {value:'18/06/2019',label:'18/06/2019'},
+                      {value:'25/06/2019',label:'25/06/2019'},
+                      {value:'02/07/2019',label:'02/07/2019'}];

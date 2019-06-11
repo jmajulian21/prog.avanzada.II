@@ -4,9 +4,7 @@ import Porfesor from './profesor'
 class ProfesorC extends Component {
   render() {
     return (
-      <div> 
-            <Porfesor/>
-      </div>
+        <Porfesor {...this.props}/>
     );
   }
 }

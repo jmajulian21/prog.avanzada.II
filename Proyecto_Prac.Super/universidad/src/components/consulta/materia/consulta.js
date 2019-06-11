@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Grid, Paper, TextField, Button, Table, TableHead, TableRow, TableCell, TableBody, IconButton } from '@material-ui/core';
 import { materiasUNO, materiasDOS, materiasTRES, materiaCUATRO } from '../../../datos/datos';
 import SearchIcon from '@material-ui/icons/Search';
+import { withStyles } from '@material-ui/core/styles';
+import {styles} from '../../utils/css/styles'
 
 const especialidad = [{ value: 'P', label: 'Tec. Sup. en Programacion' },
 { value: 'A', label: 'Tec. Sup. en Sistemas' }];
@@ -13,21 +15,22 @@ class Consulta extends Component {
 }
 
   render() {
+    const { classes } = this.props;
     return (
       <div>
         <Grid container direction="column">
           <Grid item xs={10}>
-            <Paper style={{ border: '1px solid black', 'border-radius': '5px' }}>
-              <Grid item xs>
+            <Paper>
+              <Grid item xs={10}>
                 <h3>Filtos de Buesqueda</h3>
-                <TextField variant='outlined' style={{ marginLeft: 10, marginRight: 10 }} select id="outlined-select-currency-native" label="Carrera" SelectProps={{ native: true }}>
+                <TextField  select className={classes.textFieldAnchor} margin="normal" label="Carrera" variant='outlined' SelectProps={{ native: true }}>
                   {especialidad.map(option => (
                     <option key={option.value} value={option.value}>
                       {option.label}
                     </option>
                   ))}
                 </TextField>
-                <Button variant="contained">Buscar</Button>
+                <Button variant='outlined' margin="normal" className={classes.button}>Buscar</Button>
               </Grid>
             </Paper>
           </Grid>
@@ -153,4 +156,4 @@ class Consulta extends Component {
   }
 }
 
-export default Consulta;
+export default withStyles(styles)(Consulta);

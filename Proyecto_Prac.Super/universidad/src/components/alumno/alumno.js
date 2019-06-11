@@ -1,36 +1,33 @@
 import React, { Component } from 'react';
 import { Grid,Paper,TextField } from '@material-ui/core';
-
-const especialidad = [{value:'P' , label: 'Tec. Sup. en Programacion'},
-                      {value:'A' , label: 'Tec. Sup. en Sistemas'}];
+import {styles} from '../utils/css/styles'
+import { withStyles } from '@material-ui/core/styles';
 
 class Alumno extends Component {
+
+  handleChange = (e, prop) => {
+    let valor = e.target.value;
+    this.props.item[prop] = valor;
+  }
+
   render() {
+    const { classes } = this.props;
     return (
-      <div>
         <Grid container direction="column">
-          <Grid item xs={11}>
-          <Paper style={{ border: '1px solid black', 'border-radius':'5px'}}>
-            <Grid item xs={11}>
+          <Grid item xs={10}>
+          <Paper>
+            <Grid item xs={10}>
               <h3>Datos Alumno</h3>
-              <TextField disabled style={{ marginLeft: 10 ,marginRight: 10}} id="standard-uncontrolled" label="Legajo" value="12345"/>
-              <TextField style={{ marginLeft: 10 ,marginRight: 10, marginBottom:10}} id="standard-uncontrolled" label="Egresado De" />
-              <TextField style={{ marginLeft: 10 ,marginRight: 10, marginBottom:10}} id="standard-uncontrolled" label="Titulo" />
-              <TextField style={{ marginLeft: 10 ,marginRight: 10}} select id="outlined-select-currency-native" label="Especialidad" SelectProps={{native: true}}>
-                  {especialidad.map(option => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-              </TextField>
+              <TextField disabled className={classes.textField} margin="normal" id="standard-uncontrolled" value={this.props.item.Legajo} label="Legajo" onChange={e => this.handleChange(e,"legajo")}/>
+              <TextField className={classes.textField} margin="normal" id="standard-uncontrolled" value={this.props.item.egresadoDe} label="Egresado De" onChange={e => this.handleChange(e,"egresadoDe")}/>
+              <TextField className={classes.textField} margin="normal" id="standard-uncontrolled" value={this.props.item.titulo} label="Titulo" onChange={e => this.handleChange(e,"titulo")}/>
+              <TextField className={classes.textField} margin="normal" id="standard-uncontrolled" value={this.props.item.promedio} label="Promedio Obtenido" onChange={e => this.handleChange(e,"promedio")}/>
             </Grid> 
             </Paper>
           </Grid>
-          
         </Grid>
-      </div>
     );
   }
 }
 
-export default Alumno;
+export default withStyles(styles)(Alumno);

@@ -1,30 +1,22 @@
 import React, { Component } from 'react';
 import Persona from '../../persona/personaC';
 import Profesor from '../../profesor/profesorC';
-import Adicional from '../../datosAdicionales/adicionalC';
 import { Grid, Button } from '@material-ui/core';
+import {dtoProfesor} from '../../../model/dto/Profesor';
+import {dtoPersona} from '../../../model/dto/Persona';
 
 class altaProfesor extends Component {
   render() {
     return (
-      <div>
-        <Persona />
-        <Profesor />
-        <Adicional />
-        <Grid container direction="row">
-          <Grid item xs={11}>
-            <Grid container direction="row">
-              <Grid item xs={10} />
-              <Grid item xs={1}>
-                <Button variant="contained" color="primary">Cancelar</Button>
-              </Grid>
-              <Grid item xs={1}>
-                <Button variant="contained" color="primary">Aceptar</Button>
-              </Grid>
-            </Grid>
+      <Grid container direction="row">
+          <Grid item xs={12}>
+            <Persona item={dtoPersona}/>
+            <Profesor item={dtoProfesor}/>
+          </Grid>
+          <Grid item xs={10} align="right">
+            <Button variant="contained" margin="normal" color="primary" >Aceptar</Button>
           </Grid>
         </Grid>
-      </div>
     );
   }
 }

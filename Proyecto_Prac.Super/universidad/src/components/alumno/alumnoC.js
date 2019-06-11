@@ -5,7 +5,7 @@ class AlumnoC extends Component {
   render() {
     return (
       <div>
-            <Alumno/>
+            <Alumno {...this.props}/>
       </div>
     );
   }

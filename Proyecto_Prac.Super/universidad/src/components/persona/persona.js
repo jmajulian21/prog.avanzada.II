@@ -1,70 +1,43 @@
 import React, { Component } from 'react';
-import { Grid,Paper,TextField,Button } from '@material-ui/core';
+import { Grid,Paper,TextField } from '@material-ui/core';
 import {localidad,tipoDoc,sexo} from '../../datos/datos';
-
-let i = 0;
+import { withStyles } from '@material-ui/core/styles';
+import {styles} from '../utils/css/styles'
 
 class Persona extends Component {
-  constructor(props){
+constructor(props){
     super(props);
-    this.state = {
-        id: 0 ,
-        nombres: null ,
-        apellido: null ,
-        tipoDoc: null ,
-        nroDoc: null ,
-        fechNacimiento: null ,
-        sexo: null ,
-        direccion: null ,
-        piso: null,
-        codPostal: null,
-        localidad: null
-    }
-    this.onClickEnviar = this.onClickEnviar.bind(this);
+    this.props.item.tipoDoc = 1;
+    this.props.item.sexo = 1;
+    this.props.item.localidad = 1;
+    
 }
 
 handleChange = (e, prop) => {
-    let valor = e.target.value;
-    this.setState({ [prop]: valor });
+  let valor = e.target.value;
+  this.props.item[prop] = valor;
 }
-
-
-onClickEnviar = ()  =>{
-  i += 1;
-    this.props.onAdd(i, 
-      this.state.nombres ,
-      this.state.apellido ,
-      this.state.tipoDoc ,
-      this.state.nroDoc ,
-      this.state.fechNacimiento ,
-      this.state.sexo ,
-      this.state.direccion ,
-      this.state.piso,
-      this.state.codPostal,
-      this.state.localidad);
-}
-
 
   render() {
+    const { classes } = this.props;
     return (
-      <div>
           <Grid container direction="column">
-          <Grid item xs={11}>
-          <Paper style={{ border: '1px solid black', 'border-radius':'5px'}}>
-            <Grid item xs={11}>
+          <Grid item xs={10}>
+          <Paper >
+            <Grid item xs={10}>
               <h3>Datos Personales</h3>
-              <TextField style={{ marginLeft: 10 ,marginRight: 10}} id="standard-uncontrolled" label="Nombre" value={this.state.nombres} onChange={e => this.handleChange(e,"nombres")}/>
-              <TextField style={{ marginLeft: 10 ,marginRight: 10}} id="standard-uncontrolled" label="Apellido" value={this.state.apellido} onChange={e => this.handleChange(e,"apellido")} />
-              <TextField style={{ marginLeft: 10 ,marginRight: 10}} select id="outlined-select-currency-native" label="Tipo Documento" value={this.state.tipoDoc} onChange={e => this.handleChange(e,"tipoDoc")} SelectProps={{native: true}}>
+              <TextField  className={classes.textField} margin="normal" label="Nombre" value={this.props.item.nombre} onChange={e => this.handleChange(e,"nombres")}/>
+              <TextField  className={classes.textField} margin="normal" label="Apellido" value={this.props.item.apellido} onChange={e => this.handleChange(e,"apellido")} />
+              <TextField  select className={classes.textField} margin="normal" label="Tipo Documento" value={this.props.item.tipoDoc} onChange={e => this.handleChange(e,"tipoDoc")} SelectProps={{native: true}}>
                   {tipoDoc.map(option => (
                     <option key={option.value} value={option.value}>
                       {option.label}
                     </option>
                   ))}
               </TextField>
-              <TextField style={{ marginLeft: 10 ,marginRight: 10, marginBottom:10}} id="standard-uncontrolled" label="Documento" value={this.state.nroDoc} onChange={e => this.handleChange(e,"nroDoc")}/>
-              <TextField id="date" label="Fecha Nacimiento" type="date" InputLabelProps={{shrink: true}} value={this.state.fechNacimiento} onChange={e => this.handleChange(e,"fechNacimiento")}/>
-              <TextField style={{ marginLeft: 10 ,marginRight: 10}} select id="outlined-select-currency-native" label="Sexo" SelectProps={{native: true}} value={this.state.sexo} onChange={e => this.handleChange(e,"sexo")}>
+              <TextField className={classes.textField} margin="normal" margin= "normal" type="number" label="Documento" value={this.props.item.nroDoc} onChange={e => this.handleChange(e,"nroDoc")}/>
+              <TextField className={classes.textField} margin="normal" id="date" label="Fecha Nacimiento" type="date" value={this.props.item.fechNacimiento} onChange={e => this.handleChange(e,"fechNacimiento")} InputLabelProps={{shrink: true}}/>
+              <TextField select className={classes.textField} margin="normal" label="Sexo" value={this.props.item.sexo} onChange={e => this.handleChange(e,"sexo")} SelectProps={{native: true}}>
                   {sexo.map(option => (
                     <option key={option.value} value={option.value}>
                       {option.label}
@@ -73,24 +46,25 @@ onClickEnviar = ()  =>{
               </TextField>
             </Grid>
             <Grid item xs={10} >
-              <TextField style={{ marginLeft: 10 ,marginRight: 10}} id="standard-uncontrolled" label="Direccion" value={this.state.direccion} onChange={e => this.handleChange(e,"direccion")} />
-              <TextField style={{ marginLeft: 10 ,marginRight: 10}} id="standard-uncontrolled" label="piso" value={this.state.piso} onChange={e => this.handleChange(e,"piso")}/>
-              <TextField style={{ marginLeft: 10 ,marginRight: 10}} id="standard-uncontrolled" label="Cod.Postal" value={this.state.codPostal} onChange={e => this.handleChange(e,"codPostal")}/>
-              <TextField style={{ marginLeft: 10 ,marginRight: 10}} select id="outlined-select-currency-native" label="Localidad" value={this.state.localidad} onChange={e => this.handleChange(e,"localidad")} SelectProps={{native: true}}>
+              <TextField className={classes.textField} margin="normal" label="Direccion" value={this.props.item.direccion} onChange={e => this.handleChange(e,"direccion")} />
+              <TextField className={classes.textField} margin="normal" label="piso" value={this.props.item.piso} onChange={e => this.handleChange(e,"piso")}/>
+              <TextField className={classes.textField} margin="normal" id="outlined-number" type="number" label="Cod.Postal" value={this.props.item.codPostal} onChange={e => this.handleChange(e,"codPostal")}/>
+              <TextField select className={classes.textField} margin="normal" id="outlined-select-currency-native" label="Localidad" value={this.props.item.localidad} onChange={e => this.handleChange(e,"localidad")} SelectProps={{native: true}}>
                   {localidad.map(option => (
                     <option key={option.value} value={option.value}>
                       {option.label}
                     </option>
                   ))}
               </TextField>
+              <TextField className={classes.textField} margin="normal"  type="number" label="Nro.Telefono" onChange={e => this.handleChange(e,"telefono")}/>
+              <TextField className={classes.textField} margin="normal"  type="number" label="Nro.Celular" onChange={e => this.handleChange(e,"celular")}/>
+              <TextField className={classes.textField} margin="normal"  id="outlined-email-input" type="email" label="Email" onChange={e => this.handleChange(e,"email")}/>
             </Grid>  
            </Paper>
-           <Button variant="contained" onClick={this.onClickEnviar}>Aceptar</Button>
            </Grid>
           </Grid>
-      </div>
     );
   }
 }
 
-export default Persona;
+export default withStyles(styles)(Persona);
