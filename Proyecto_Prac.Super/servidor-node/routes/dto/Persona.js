@@ -2,32 +2,15 @@ var express = require('express');
 var router = express.Router();
 var bodyParser = require("body-parser");
 var nodeJsonTransformer = require('json-transformer-node');
+var PersonaMap = require('./maps/PersonaMap.json');
+//import persona from '../data/data';
+
+var personas=[{id: 1, nombre: "Julian.M" , apellido: "Moreno" , tipoDoc: 1 , nroDoc: "37589654" , fechNacimiento: "null" , 
+               sexo: "M" , direccion: "Lisandro de la torre 1273" , piso: null, codPostal: "1838", localidad: 1, telefono: "42969001", 
+               celular: "1128802769", email: "julian.a.moreno@hotmail.com"}];
 
 //GET: Consultar elemento
-var personas=[ 
-    {id: 1, nombre: "Julian.M" , apellido: "Moreno" , tipoDoc: 1 , nroDoc: "37589654" , fechNacimiento: "null" , 
-        sexo: "M" , direccion: "Lisandro de la torre 1273" , piso: null, codPostal: "1838", localidad: 1, telefono: "42969001", celular: "1128802769", email: "julian.a.moreno@hotmail.com"}]
-
-var transformation = {
-            mapping : {
-                item : {
-                    id : "id",
-                    nombre : "nombre",
-                    apellido : "apellido",
-                    tipoDoc : "tipoDoc",
-                    nroDoc : "nroDoc",
-                    fechNacimiento : "fechNacimiento",
-                    sexo : "sexo",
-                    direccion: "direccion",
-                    piso: "piso",
-                    codPostal:"codPostal",
-                    localidad:"localidad",
-                    telefono:"telefono",
-                    celular:"celular",
-                    email:"email" 
-                }
-        }
-};
+var transformation = {mapping : { item : PersonaMap}};
 
 //Metodo del Express
 router.get('/personas/:id', function(req, res) {
