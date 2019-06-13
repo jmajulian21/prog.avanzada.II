@@ -14,35 +14,31 @@ var router = express.Router();
     res = data;
 });*/
 
-
-router.get('/sumas/:num1-:num2', function(req, res, next) {
+//Promise
+router.get('/sumas/:num1-:num2', function (req, res, next) {
     var num1 = Number(req.params.num1);
     var num2 = Number(req.params.num2);
 
-    math.suma(num1,num2,(err,data) => {
-        if(err){
-            console.log("Error Suma");
-        }
-        math.resta(10,data,(err,data) => {
-            if(err){
-                console.log("Error Resta");
-            }
-            math.division(2,0,(err,data)=>{
-                if(err){
-                    console.log("Error Division");
+    math.suma(num1, num2)
+        .then(data => {
+            return math.resta(10, data);
+        })
+        .then(data => {
+            math.division(2, data, (err, data) => {
+                if (err) {
                     res.send("Error Division");
                     return;
                 }
-                math.multiplicacion(20,data,(err,data)=>{
-                    if(err){
-                        console.log("Error Multiplicacion");
-                    }
-                    res.send("Resultado: "+ data);
+                math.multiplicacion(20, data, (err, data) => {
+                    res.send("Resultado: " + data);
                 });
             });
-        });
-    });
+        })
+        .catch(e => {
+            res.send(e);
+        })
 });
+
 
 module.exports = router;
 

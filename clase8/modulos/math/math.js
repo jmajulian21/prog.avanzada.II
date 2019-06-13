@@ -4,11 +4,20 @@ module.exports = {
     multiplicacion,
     division
 }
-function suma(a,b,callback){
-    callback(null,(a+b));
+function suma(a,b){
+    return new Promise((resolve,reject) => {
+        if(b = 0){
+            reject("Error el segundo numero es igual 0");
+            return;
+        }
+        resolve(a+b);
+    });
 }
-function resta(a,b,callback){
-    callback(null,(a-b));
+
+function resta(a,b){
+    return new Promise((resolve,reject) => {
+        resolve(a-b);
+    });
 }
 function multiplicacion(a,b,callback){
     callback(null,(a*b));
