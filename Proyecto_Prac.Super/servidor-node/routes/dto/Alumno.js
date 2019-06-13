@@ -1,25 +1,30 @@
 var express = require('express');
+var data = require('../data/data');
 var router = express.Router();
-var PersonaMap = require('./maps/PersonaMap.json');
-var AlumnoMap = require('./maps/AlumnoMap.json');
+var bodyParser = require("body-parser");
 
-var personas=[{id: 1, nombre: "Julian.M" , apellido: "Moreno" , tipoDoc: 1 , nroDoc: "37589654" , fechNacimiento: "null" , 
-               sexo: "M" , direccion: "Lisandro de la torre 1273" , piso: null, codPostal: "1838", localidad: 1, telefono: "42969001", 
-               celular: "1128802769", email: "julian.a.moreno@hotmail.com"}];
+router.use(bodyParser.urlencoded({ extended: false }));
+router.use(bodyParser.json());
 
-var alumnos=[{id:1,egresadoDe:"Escuela Secundaria N°12",titulo:"Bachiller en electronica",promedio:7}];
-
-var trans1 = {mapping : { item : PersonaMap}};
-var trans2 = {mapping : { item : AlumnoMap}};
 
 router.get('/alumnos/:id', function(req, res) {
     var id = req.params.id;
-    var resp = personas.find((item) => item.id == id);
-    var resp1 = alumnos.find((item) => item.id == id);
-    var result = nodeJsonTransformer.transform(resp, trans1);
-    var result2 = nodeJsonTransformer.transform(resp1, trans2);
-
-    res.send(result+result2);
+    var datoAlumno = data.personas.find((item) => item.id == id);
+    var detalle = data.alumnos.find((item) => item.id == id);
+    datoAlumno.detalle=detalle;
+    res.json({datoAlumno});
   });
-  
+
+  router.post('/alumnos', function(req, res) {
+    var pers =req.body.datoAlumno;
+    
+    var item = {id: (data.personas.length+1)};
+    data.personas.push({ id: item.id, nombre: pers.nombre , apellido: pers.apellido, tipoDoc: pers.tipoDoc,
+                    nroDoc: pers.nroDoc,fechNacimiento: pers.fechNacimiento,sexo: pers.sexo,direccion: pers.direccion,
+                    piso: pers.piso,codPostal: pers.codPostal,localidad: pers.localidad,telefono: pers.telefono,celular: pers.celular,email: pers.email })
+                    data.alumnos.push({id:item.id,egresadoDe:pers.detalle.egresadoDe,titulo:pers.detalle.titulo,promedio:pers.detalle.promedio});
+    
+    res.json(item);
+  });
+
 module.exports = router;

@@ -18,7 +18,7 @@ router.get('/personas/:id', function(req, res) {
   var resp = personas.find((item) => item.id == id);
   var result = nodeJsonTransformer.transform(resp, transformation);
 
-  res.send(result);
+  res.json(resp);
 });
 
 
