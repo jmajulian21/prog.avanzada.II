@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { ExcelExport} from '@progress/kendo-react-excel-export';
+import { ExcelExport } from '@progress/kendo-react-excel-export';
 import { Grid, Paper, TextField, Button, Table, TableHead, TableRow, TableCell, TableBody, Checkbox } from '@material-ui/core';
-import { fecha,grado, especialidad, materia } from '../../datos/datos';
+import { fecha, materia } from '../../datos/datos';
 import { withStyles } from '@material-ui/core/styles';
-import {styles} from '../utils/css/styles'
+import { styles } from '../utils/css/styles'
 
 let id = 0;
 function createData(legajo, apellido, nombre, grado) {
@@ -18,12 +18,29 @@ createData(126, "Ibañez", "Brian", "1Av"),
 createData(127, "Peralta", "Rosa", "1A")];
 
 class Asistencias extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      idCarrera : 0
+    }
+  }
+  
+  handleChange = (e, prop) => {
+    let valor = e.target.value;
+    if (prop == 'especialidad') {
+      this.props.onCursos(valor);
+    }
+    if (prop == 'materia') {
+      this.props.onMaterias(valor);
+    }
+  }
+
   _exporter;
   export = () => {
     this._exporter.save();
   }
   render() {
-    const { classes } = this.props;
+    const { classes, especialidades, cursos, materias } = this.props;
     return (
       <div>
         <Grid container direction="column" className={classes.container}>
@@ -31,24 +48,25 @@ class Asistencias extends Component {
             <Paper >
               <Grid item xs>
                 <h3>Filtos de Buesqueda</h3>
-                <TextField variant='outlined' select label="Carrera" className={classes.textFieldAnchorMas} SelectProps={{ native: true }}>
-                  {especialidad.map(option => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
+                <TextField variant='outlined' select label="Carrera" className={classes.textFieldAnchorMas} SelectProps={{ native: true }} onChange={e => this.handleChange(e, "especialidad")}>
+                  <option value={0} />
+                    {especialidades.map(option => (
+                    <option key={option.id_carrera} value={option.id_carrera}>
+                      {option.carrera}
                     </option>
                   ))}
                 </TextField>
-                <TextField variant='outlined' select label="Grado" className={classes.textFieldAnchorMinus} SelectProps={{ native: true }}>
-                  {grado.map(option => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
+                <TextField variant='outlined' select label="Curso" className={classes.textFieldAnchorMinus} SelectProps={{ native: true }} onChange={e => this.handleChange(e, "materia")}>
+                  {cursos.map(option => (
+                    <option key={option.id_curso} value={option.id_curso}>
+                      {option.descripcion}
                     </option>
                   ))}
                 </TextField>
                 <TextField variant='outlined' select label="Materia" className={classes.textFieldAnchorMas} SelectProps={{ native: true }}>
-                  {materia.map(option => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
+                  {materias.map(option => (
+                    <option key={option.id_materia} value={option.id_materia}>
+                      {option.materia}
                     </option>
                   ))}
                 </TextField>
@@ -59,7 +77,7 @@ class Asistencias extends Component {
                     </option>
                   ))}
                 </TextField>
-                
+
                 <Button variant="contained" margin="normal" className={classes.button}>Buscar</Button>
                 <Grid container direction="row">
                   <Grid item xs={6}>
@@ -108,7 +126,7 @@ class Asistencias extends Component {
               </Grid>
             </Paper>
             <Grid item xs={12} align="right">
-            <Button variant="contained" className={classes.button}>Reiniciar</Button>
+              <Button variant="contained" className={classes.button}>Reiniciar</Button>
               <Button variant="contained" className={classes.button}>Aceptar</Button>
             </Grid>
           </Grid>

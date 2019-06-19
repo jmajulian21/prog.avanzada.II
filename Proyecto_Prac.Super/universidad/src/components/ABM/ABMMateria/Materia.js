@@ -22,7 +22,6 @@ handleChange = (e, prop) => {
 
 onClickEnviar = ()  =>{
   i += 1;
-    this.props.onAdd(i, this.state.legajo, this.state.materia,this.state.fechaAlta);
 }
 
     render() {
