@@ -4,14 +4,12 @@ var data = require('../data/data');
 
 //Metodo del Express
 router.get('/carreras', function (req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
   var resp = data.carreras;
 
   res.json(resp);
 });
 
 router.get('/carreras/:id', function (req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
   var id = req.params.id;
   var resp = data.carreras.find((item) => item.id_carrera == id);
 
@@ -19,7 +17,6 @@ router.get('/carreras/:id', function (req, res) {
 });
 
 router.get('/carreras/:id/cursos', function (req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
   var id = req.params.id;
   var resp = [];
   for (var i = 0; i < data.asignaciones.length; i++){
@@ -35,7 +32,6 @@ router.get('/carreras/:id/cursos', function (req, res) {
 });
 
 router.get('/carreras/:id/cursos/:idCurso', function (req, res) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
   var idCarrera = req.params.id;
   var idCurso = req.params.idCurso;
   var idMateria = 1;//req.params.idMateria;

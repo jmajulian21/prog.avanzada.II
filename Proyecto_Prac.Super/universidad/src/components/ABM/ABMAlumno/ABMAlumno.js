@@ -5,7 +5,32 @@ import { Grid, Button } from '@material-ui/core';
 import { dtoPersona } from '../../../model/dto/Persona';
 import { dtoAlumno } from '../../../model/dto/Alumno';
 
-var data = {nombre: 'Julian'};
+var url = 'http://localhost:8081/alumnos';
+var data = { datoAlumno: {
+  id: null,
+  nombre: dtoPersona.nombres,
+  apellido: dtoPersona.apellido,
+  tipoDoc: dtoPersona.tipoDoc,
+  nroDoc: dtoPersona.nroDoc,
+  fechNacimiento: dtoPersona.fechNacimiento,
+  sexo: dtoPersona.sexo,
+  direccion: dtoPersona.direccion,
+  piso: dtoPersona.piso,
+  codPostal: dtoPersona.codPostal,
+  localidad: dtoPersona.localidad,
+  telefono: dtoPersona.telefono,
+  celular: dtoPersona.celular,
+  email: dtoPersona.email,
+  detalle: {
+    id: null,
+    egresadoDe: dtoAlumno.egresadoDe,
+    titulo: dtoAlumno.titulo,
+    promedio: dtoAlumno.promedio
+  }}
+};
+
+var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
 
 class AlumnoC extends Component {
   constructor(props) {
@@ -15,16 +40,14 @@ class AlumnoC extends Component {
       alumnos: []
     }
   }
-  
-  
+
+
+
   onAgregar = () => {
-    fetch('http://localhost:8081/alumnos', {
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      mode: 'no-cors',
-      method: 'POST',
-      body: data.nombre,
+    fetch(url, {
+      method: 'POST', // or 'PUT'
+      body: JSON.stringify(data), // data can be `string` or {object}!
+      headers: myHeaders
     }).then(res => res)
       .then(data => console.log(data))
       .catch(err => console.log(err))
@@ -48,25 +71,4 @@ class AlumnoC extends Component {
 export default AlumnoC;
 
 
-/*datoAlumno:{
-          id: null,
-          nombre: dtoPersona.nombres,
-          apellido: dtoPersona.apellido ,
-          tipoDoc: dtoPersona.tipoDoc ,
-          nroDoc: dtoPersona.nroDoc ,
-          fechNacimiento: dtoPersona.fechNacimiento ,
-          sexo: dtoPersona.sexo ,
-          direccion: dtoPersona.direccion ,
-          piso: dtoPersona.piso,
-          codPostal: dtoPersona.codPostal,
-          localidad: dtoPersona.localidad,
-          telefono: dtoPersona.telefono,
-          celular: dtoPersona.celular,
-         email: dtoPersona.email,
-          detalle: {
-            id: null,
-            egresadoDe:dtoAlumno.egresadoDe,
-            titulo:dtoAlumno.titulo,
-            promedio:dtoAlumno.promedio
-          }
-        }*/
+/**/
