@@ -31,21 +31,4 @@ router.get('/carreras/:id/cursos', function (req, res) {
   res.json(resp);
 });
 
-router.get('/carreras/:id/cursos/:idCurso', function (req, res) {
-  var idCarrera = req.params.id;
-  var idCurso = req.params.idCurso;
-  var idMateria = 1;//req.params.idMateria;
-
-  var respAux = data.asignaciones.find((item) => item.id_carrera == idCarrera &&
-                                              item.id_curso == idCurso &&
-                                              item.id_materia == idMateria);
-
-  var idAsignacion = respAux.id_asignacion;
-  var resp = data.programas.find((item) => item.id_asignacion == idAsignacion);
-
-  res.json(resp);
-});
-
-///materias/:idMateria/dictados
-
 module.exports = router;

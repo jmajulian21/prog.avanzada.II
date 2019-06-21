@@ -48,8 +48,8 @@ handleChange = (e, prop) => {
             <Grid item xs={10} >
               <TextField className={classes.textField} margin="normal" label="Direccion" value={this.props.item.direccion} onChange={e => this.handleChange(e,"direccion")} />
               <TextField className={classes.textField} margin="normal" label="piso" value={this.props.item.piso} onChange={e => this.handleChange(e,"piso")}/>
-              <TextField className={classes.textField} margin="normal" id="outlined-number" type="number" label="Cod.Postal" value={this.props.item.codPostal} onChange={e => this.handleChange(e,"codPostal")}/>
-              <TextField select className={classes.textField} margin="normal" id="outlined-select-currency-native" label="Localidad" value={this.props.item.localidad} onChange={e => this.handleChange(e,"localidad")} SelectProps={{native: true}}>
+              <TextField className={classes.textField} margin="normal" type="number" label="Cod.Postal" value={this.props.item.codPostal} onChange={e => this.handleChange(e,"codPostal")}/>
+              <TextField select className={classes.textField} margin="normal" label="Localidad" value={this.props.item.localidad} onChange={e => this.handleChange(e,"localidad")} SelectProps={{native: true}}>
                   {localidad.map(option => (
                     <option key={option.value} value={option.value}>
                       {option.label}
@@ -58,7 +58,7 @@ handleChange = (e, prop) => {
               </TextField>
               <TextField className={classes.textField} margin="normal"  type="number" label="Nro.Telefono" onChange={e => this.handleChange(e,"telefono")}/>
               <TextField className={classes.textField} margin="normal"  type="number" label="Nro.Celular" onChange={e => this.handleChange(e,"celular")}/>
-              <TextField className={classes.textField} margin="normal"  id="outlined-email-input" type="email" label="Email" onChange={e => this.handleChange(e,"email")}/>
+              <TextField className={classes.textField} margin="normal"  type="email" label="Email" onChange={e => this.handleChange(e,"email")}/>
             </Grid>  
            </Paper>
            </Grid>

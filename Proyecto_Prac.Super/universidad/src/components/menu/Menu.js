@@ -13,8 +13,6 @@ class Menu extends Component {
                     <Toolbar>
                         <Grid container>
                             <Grid item xs={11}>
-                                <Button color="inherit" onClick={() => this.ir("/inicio")}>Inicio</Button>
-                                <Button color="inherit" onClick={() => this.ir("/history")} >Historia</Button>
                                 <Button color="inherit" onClick={() => this.ir("/alumnos/gestion")} >Alumno</Button>
                                 <Button color="inherit" onClick={() => this.ir("/profesores/gestion")} >Profesor</Button>
                                 <Button color="inherit" onClick={() => this.ir("/asistencias")}>Asistencias</Button>
@@ -34,5 +32,7 @@ class Menu extends Component {
     }
 }
 
+//<Button color="inherit" onClick={() => this.ir("/inicio")}>Inicio</Button>
+//<Button color="inherit" onClick={() => this.ir("/history")} >Historia</Button>
 
 export default Menu;

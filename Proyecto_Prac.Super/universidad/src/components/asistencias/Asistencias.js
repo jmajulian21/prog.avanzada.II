@@ -1,27 +1,21 @@
 import React, { Component } from 'react';
 import { ExcelExport } from '@progress/kendo-react-excel-export';
 import { Grid, Paper, TextField, Button, Table, TableHead, TableRow, TableCell, TableBody, Checkbox } from '@material-ui/core';
-import { fecha, materia } from '../../datos/datos';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from '../utils/css/styles'
 
-let id = 0;
-function createData(legajo, apellido, nombre, grado) {
-  id += 1;
-  return { id, legajo, apellido, nombre, grado };
+function convertDate(inputFormat) {
+  function pad(s) { return (s < 10) ? '0' + s : s; }
+  var d = new Date(inputFormat);
+  return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/');
 }
-
-const rows = [createData(123, "Moreno", "Julian", "1A"),
-createData(124, "Perez", "Juan", "1A"),
-createData(125, "Torres", "Ana Maria", "1A"),
-createData(126, "Ibañez", "Brian", "1Av"),
-createData(127, "Peralta", "Rosa", "1A")];
 
 class Asistencias extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      idCarrera : 0
+      idCarrera : 0,
+      idCurso : 0
     }
   }
   
@@ -31,7 +25,11 @@ class Asistencias extends Component {
       this.props.onCursos(valor);
     }
     if (prop == 'materia') {
+      this.setState({idCurso:valor});
       this.props.onMaterias(valor);
+    }
+    if (prop == 'fechas') {
+      this.props.onMateria(this.state.idCurso,valor);
     }
   }
 
@@ -40,12 +38,12 @@ class Asistencias extends Component {
     this._exporter.save();
   }
   render() {
-    const { classes, especialidades, cursos, materias } = this.props;
+    const { classes, especialidades, cursos, materias, fechas,alumnos } = this.props;
     return (
       <div>
         <Grid container direction="column" className={classes.container}>
           <Grid item xs={11}>
-            <Paper >
+            <Paper className={classes.button}>
               <Grid item xs>
                 <h3>Filtos de Buesqueda</h3>
                 <TextField variant='outlined' select label="Carrera" className={classes.textFieldAnchorMas} SelectProps={{ native: true }} onChange={e => this.handleChange(e, "especialidad")}>
@@ -57,41 +55,31 @@ class Asistencias extends Component {
                   ))}
                 </TextField>
                 <TextField variant='outlined' select label="Curso" className={classes.textFieldAnchorMinus} SelectProps={{ native: true }} onChange={e => this.handleChange(e, "materia")}>
+                <option value={0} />
                   {cursos.map(option => (
                     <option key={option.id_curso} value={option.id_curso}>
                       {option.descripcion}
                     </option>
                   ))}
                 </TextField>
-                <TextField variant='outlined' select label="Materia" className={classes.textFieldAnchorMas} SelectProps={{ native: true }}>
+                <TextField variant='outlined' select label="Materia" className={classes.textFieldAnchorMas} SelectProps={{ native: true }} onChange={e => this.handleChange(e, "fechas")}>
+                <option value={0} />
                   {materias.map(option => (
                     <option key={option.id_materia} value={option.id_materia}>
                       {option.materia}
                     </option>
                   ))}
                 </TextField>
-                <TextField variant='outlined' select label="Fecha" className={classes.textField} SelectProps={{ native: true }}>
-                  {fecha.map(option => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
+                <TextField variant='outlined' select label="Fecha" className={classes.textField} SelectProps={{ native: true }} >
+                <option value={0} />
+                  {fechas.map(option => (
+                    <option key={option.key} value={option.fecha}>
+                      { 
+                        convertDate(option.fecha)
+                      }
                     </option>
                   ))}
                 </TextField>
-
-                <Button variant="contained" margin="normal" className={classes.button}>Buscar</Button>
-                <Grid container direction="row">
-                  <Grid item xs={6}>
-                    <Paper className={classes.button}>
-                      <h5>Exportar Planillas</h5>
-                      <Button variant='contained' margin="normal" className={classes.button} onClick={this.export}>Asistencias</Button>
-                      <ExcelExport
-                        data={rows}
-                        fileName="Asistencia.xlsx"
-                        ref={(exporter) => { this._exporter = exporter; }}>
-                      </ExcelExport>
-                    </Paper>
-                  </Grid>
-                </Grid>
               </Grid>
             </Paper>
           </Grid>
@@ -113,9 +101,9 @@ class Asistencias extends Component {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {rows.map(row => (
-                      <TableRow key={row.id}>
-                        <TableCell > {row.legajo}</TableCell>
+                    {alumnos.map(row => (
+                      <TableRow key={row.detalle.id_alumno}>
+                        <TableCell > {row.detalle.legajo}</TableCell>
                         <TableCell >{row.apellido}</TableCell>
                         <TableCell >{row.nombre}</TableCell>
                         <TableCell ><Checkbox /></TableCell>
@@ -126,7 +114,6 @@ class Asistencias extends Component {
               </Grid>
             </Paper>
             <Grid item xs={12} align="right">
-              <Button variant="contained" className={classes.button}>Reiniciar</Button>
               <Button variant="contained" className={classes.button}>Aceptar</Button>
             </Grid>
           </Grid>

@@ -18,7 +18,7 @@ class Alumno extends Component {
           <Paper>
             <Grid item xs={10}>
               <h3>Datos Alumno</h3>
-              <TextField disabled className={classes.textField} margin="normal" id="standard-uncontrolled" value={this.props.item.Legajo} label="Legajo" onChange={e => this.handleChange(e,"legajo")}/>
+              <TextField disabled className={classes.textField} margin="normal" id="standard-uncontrolled" value={this.props.legajo} label="Legajo" onChange={e => this.handleChange(e,"legajo")}/>
               <TextField className={classes.textField} margin="normal" id="standard-uncontrolled" value={this.props.item.egresadoDe} label="Egresado De" onChange={e => this.handleChange(e,"egresadoDe")}/>
               <TextField className={classes.textField} margin="normal" id="standard-uncontrolled" value={this.props.item.titulo} label="Titulo" onChange={e => this.handleChange(e,"titulo")}/>
               <TextField className={classes.textField} margin="normal" id="standard-uncontrolled" value={this.props.item.promedio} label="Promedio Obtenido" onChange={e => this.handleChange(e,"promedio")}/>

@@ -1,8 +1,15 @@
+var legajo = 1002;
+
+var fechas_clases = [{id_carrera:1,fecha_inicio:'2019-03-18',fecha_fin:'2019-07-06'}];
+
 var personas=[{id_persona: 1, nombre: "Julian.M" , apellido: "Moreno" , tipoDoc: 1 , nroDoc: "37589654" , fechNacimiento: "null" , 
                sexo: "M" , direccion: "Lisandro de la torre 1273" , piso: null, codPostal: "1838", localidad: 1, telefono: "42969001", 
-               celular: "1128802769", email: "julian.a.moreno@hotmail.com"}]
+               celular: "1128802769", email: "julian.a.moreno@hotmail.com"},{id_persona: 2, nombre: "Fernando.P" , apellido: "Perez" , tipoDoc: 1 , nroDoc: "35678345" , fechNacimiento: "null" , 
+               sexo: "M" , direccion: "Alem 455" , piso: null, codPostal: "1838", localidad: 1, telefono: "43675456", 
+               celular: null, email: "fernando.p@gmail.com"}]
 
-var alumnos= [{id_alumno:1,id_persona: 1,egresadoDe:"Escuela Secundaria N°12",titulo:"Bachiller en electronica",promedio:7}];
+var alumnos= [{id_alumno:1,id_persona: 1,legajo: 1001 ,egresadoDe:"Escuela Secundaria N°12",titulo:"Bachiller en electronica",promedio:7},
+              {id_alumno:2,id_persona: 2,legajo: 1002 ,egresadoDe:"Escuela Secundaria N°1",titulo:"Bachiller en Informatica",promedio:9}];
 
 var carreras= [{id_carrera:1,carrera:'Tecnico Superior Programacion'},
                {id_carrera:2,carrera:'Tecnico Superior en Sistemas'}];
@@ -34,8 +41,11 @@ var horarios_clase=[{id_horario_clase:1,horario_desde:'',horario_hasta:''},
 
 var programas= [{id_programa:1,id_asignacion:1,id_dia_clase_1:1,id_dia_clase_2:4,id_horario_clase_1:1,id_horario_clase_2:2}];
 
-var asistencias= [{id_asistencia:1,id_programa:1,id_alumno:1}];
+var alumnos_inscriptos= [{id_programa:1,id_alumno:1},{id_programa:1,id_alumno:2}]
+
+var asistencias= [{id_asistencia:1,id_programa:1,id_alumno:1,fecha:''},
+                  {id_asistencia:2,id_programa:1,id_alumno:2,fecha:''}];
 
 
-module.exports={personas, alumnos, carreras, materias, carreras,
-    asignaciones, cursos, programas, asistencias,dias_clase,horarios_clase}; 
+module.exports={legajo, personas, alumnos, carreras, materias, carreras,
+    asignaciones, cursos, programas, asistencias,dias_clase,horarios_clase,fechas_clases,alumnos_inscriptos}; 

@@ -6,51 +6,64 @@ import { dtoPersona } from '../../../model/dto/Persona';
 import { dtoAlumno } from '../../../model/dto/Alumno';
 
 var url = 'http://localhost:8081/alumnos';
-var data = { datoAlumno: {
-  id: null,
-  nombre: dtoPersona.nombres,
-  apellido: dtoPersona.apellido,
-  tipoDoc: dtoPersona.tipoDoc,
-  nroDoc: dtoPersona.nroDoc,
-  fechNacimiento: dtoPersona.fechNacimiento,
-  sexo: dtoPersona.sexo,
-  direccion: dtoPersona.direccion,
-  piso: dtoPersona.piso,
-  codPostal: dtoPersona.codPostal,
-  localidad: dtoPersona.localidad,
-  telefono: dtoPersona.telefono,
-  celular: dtoPersona.celular,
-  email: dtoPersona.email,
-  detalle: {
-    id: null,
-    egresadoDe: dtoAlumno.egresadoDe,
-    titulo: dtoAlumno.titulo,
-    promedio: dtoAlumno.promedio
-  }}
-};
+var data;
 
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
+
+function actualizarBody() {
+  data = {
+    datoAlumno: {
+      id: null,
+      nombre: dtoPersona.nombres,
+      apellido: dtoPersona.apellido,
+      tipoDoc: dtoPersona.tipoDoc,
+      nroDoc: dtoPersona.nroDoc,
+      fechNacimiento: dtoPersona.fechNacimiento,
+      sexo: dtoPersona.sexo,
+      direccion: dtoPersona.direccion,
+      piso: dtoPersona.piso,
+      codPostal: dtoPersona.codPostal,
+      localidad: dtoPersona.localidad,
+      telefono: dtoPersona.telefono,
+      celular: dtoPersona.celular,
+      email: dtoPersona.email,
+      detalle: {
+        legajo: dtoAlumno.legajo,
+        egresadoDe: dtoAlumno.egresadoDe,
+        titulo: dtoAlumno.titulo,
+        promedio: dtoAlumno.promedio
+      }
+    }
+  };
+}
 
 class AlumnoC extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      personas: [],
-      alumnos: []
+      legajo: null
     }
+
+  }
+  
+  componentDidMount() {
+    fetch('http://localhost:8081/alumnos/legajo')
+    .then(response => response.json())
+    .then(data => { this.setState({ legajo: data.legajo }) })
   }
 
-
-
   onAgregar = () => {
+    dtoAlumno.legajo = this.state.legajo;
+    actualizarBody();
     fetch(url, {
-      method: 'POST', // or 'PUT'
-      body: JSON.stringify(data), // data can be `string` or {object}!
+      method: 'POST',
+      body: JSON.stringify(data),
       headers: myHeaders
     }).then(res => res)
       .then(data => console.log(data))
       .catch(err => console.log(err))
+    window.location.replace('');
   }
 
   render() {
@@ -58,7 +71,7 @@ class AlumnoC extends Component {
       <Grid container direction="row">
         <Grid item xs={12}>
           <Persona item={dtoPersona} />
-          <Alumno item={dtoAlumno} />
+          <Alumno legajo={this.state.legajo} item={dtoAlumno} />
         </Grid>
         <Grid item xs={10} align="right">
           <Button variant="contained" margin="normal" color="primary" onClick={this.onAgregar}>Aceptar</Button>
@@ -69,6 +82,3 @@ class AlumnoC extends Component {
 }
 
 export default AlumnoC;
-
-
-/**/
