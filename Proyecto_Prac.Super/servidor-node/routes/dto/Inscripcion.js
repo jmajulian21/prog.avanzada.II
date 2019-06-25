@@ -28,6 +28,3 @@ router.get('/cursos/:id/materias', function (req, res) {
   }
   res.json(resp);
 });
-
-
-module.exports = router;

@@ -22,23 +22,23 @@ class AsistenciasC extends Component {
       .then(data => { this.setState({ especialidades: data }); })
   }
 
-  getCursos(id) {
+  getCursos(idCurso) {
     if(id==0){
       this.setState({ cursos: [], materias:[],fechas:[],alumnos:[] });
     }else{
-      fetch("http://localhost:8081/carreras/"+id+"/cursos")
+      fetch("http://localhost:8081/carreras/"+idCurso+"/cursos")
       .then(response => response.json())
       .then(data => { this.setState({ cursos: data , materias:[],fechas:[],alumnos:[]}); })
     }
   }
 
-  getMaterias(id) {
-    fetch("http://localhost:8081/cursos/"+id+"/materias")
+  getMaterias(idCarrera,idCurso) {
+    fetch("http://localhost:8081/carreras/"+idCarrera+"/cursos/"+idCurso+"/materias")
       .then(response => response.json())
       .then(data => { this.setState({ materias: data ,fechas:[],alumnos:[] }); })
   }
 
-  getMateria(idCurso,idMateria) {
+  getMateria(idCarrera,idCurso,idMateria) {
     fetch("http://localhost:8081/cursos/"+idCurso+"/materias/"+idMateria)
       .then(response => response.json())
       .then(data => { this.setState({ fechas: data.fechas , alumnos: data.alumnos }); })
