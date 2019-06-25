@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { ExcelExport } from '@progress/kendo-react-excel-export';
 import { Grid, Paper, TextField, Button, Table, TableHead, TableRow, TableCell, TableBody, Checkbox } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from '../utils/css/styles'
@@ -15,21 +14,28 @@ class Asistencias extends Component {
     super(props);
     this.state = {
       idCarrera : 0,
-      idCurso : 0
+      idCurso : 0,
+      idMateria: 0
     }
   }
   
   handleChange = (e, prop) => {
     let valor = e.target.value;
-    if (prop == 'especialidad') {
+    if (prop === 'especialidad') {
+      if(valor === 0 ){
+        this.setState({idCarrera:valor,idCurso:null,idMateria:null});
+      }else{
+        this.setState({idCarrera:valor});
+      }
       this.props.onCursos(valor);
     }
-    if (prop == 'materia') {
+    if (prop === 'materia') {
       this.setState({idCurso:valor});
-      this.props.onMaterias(valor);
+      this.props.onMaterias(this.state.idCarrera,valor);
     }
-    if (prop == 'fechas') {
-      this.props.onMateria(this.state.idCurso,valor);
+    if (prop === 'fechas') {
+      this.setState({idMateria:valor});
+      this.props.onMateria(this.state.idCarrera,this.state.idCurso,valor);
     }
   }
 

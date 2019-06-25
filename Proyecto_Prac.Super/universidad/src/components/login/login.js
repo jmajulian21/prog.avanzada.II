@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Dialog,DialogActions,DialogContent,
-         DialogContentText,DialogTitle,TextField,Button} from '@material-ui/core';
+import { Dialog,DialogActions,DialogContent,DialogTitle,TextField,Button} from '@material-ui/core';
 
 class Login extends Component{
     state = {

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, TextField,Button} from '@material-ui/core';
 
-let i = 0;
 class Materia extends Component {
   constructor(props){
     super(props);
@@ -21,7 +20,6 @@ handleChange = (e, prop) => {
 
 
 onClickEnviar = ()  =>{
-  i += 1;
 }
 
     render() {

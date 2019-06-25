@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, TextField,Button} from '@material-ui/core';
 
-
-let i = 0;
-var d = new Date();
-
 class Carrera extends Component {
     constructor(props){
         super(props);
@@ -23,9 +19,7 @@ class Carrera extends Component {
 
     
     onClickEnviar = ()  =>{
-        i += 1;
-
-        this.props.onAdd(i, this.state.carrera, this.state.fechaAlta);
+        this.props.onAdd(this.state.carrera, this.state.fechaAlta);
     }
 
     render() {

@@ -23,7 +23,7 @@ class AsistenciasC extends Component {
   }
 
   getCursos(idCurso) {
-    if(id==0){
+    if(idCurso === 0){
       this.setState({ cursos: [], materias:[],fechas:[],alumnos:[] });
     }else{
       fetch("http://localhost:8081/carreras/"+idCurso+"/cursos")
@@ -33,13 +33,17 @@ class AsistenciasC extends Component {
   }
 
   getMaterias(idCarrera,idCurso) {
-    fetch("http://localhost:8081/carreras/"+idCarrera+"/cursos/"+idCurso+"/materias")
+    if(idCarrera === 0 || idCurso === 0){
+      this.setState({ materias:[],fechas:[],alumnos:[] });
+    }else{
+      fetch("http://localhost:8081/carreras/"+idCarrera+"/cursos/"+idCurso+"/materias")
       .then(response => response.json())
       .then(data => { this.setState({ materias: data ,fechas:[],alumnos:[] }); })
+    }
   }
 
   getMateria(idCarrera,idCurso,idMateria) {
-    fetch("http://localhost:8081/cursos/"+idCurso+"/materias/"+idMateria)
+    fetch("http://localhost:8081/carreras/"+idCarrera+"/cursos/"+idCurso+"/materias/"+idMateria)
       .then(response => response.json())
       .then(data => { this.setState({ fechas: data.fechas , alumnos: data.alumnos }); })
   }

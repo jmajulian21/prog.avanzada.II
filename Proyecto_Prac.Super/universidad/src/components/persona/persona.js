@@ -35,7 +35,7 @@ handleChange = (e, prop) => {
                     </option>
                   ))}
               </TextField>
-              <TextField className={classes.textField} margin="normal" margin= "normal" type="number" label="Documento" value={this.props.item.nroDoc} onChange={e => this.handleChange(e,"nroDoc")}/>
+              <TextField className={classes.textField} margin="normal" type="number" label="Documento" value={this.props.item.nroDoc} onChange={e => this.handleChange(e,"nroDoc")}/>
               <TextField className={classes.textField} margin="normal" id="date" label="Fecha Nacimiento" type="date" value={this.props.item.fechNacimiento} onChange={e => this.handleChange(e,"fechNacimiento")} InputLabelProps={{shrink: true}}/>
               <TextField select className={classes.textField} margin="normal" label="Sexo" value={this.props.item.sexo} onChange={e => this.handleChange(e,"sexo")} SelectProps={{native: true}}>
                   {sexo.map(option => (

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Paper, TextField, Button, Table, TableHead, TableRow, TableCell, TableBody, Checkbox } from '@material-ui/core';
+import { Grid, Paper, TextField, Button, Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
 import { grado, especialidad, materia } from '../../../datos/datos';
 
 let id = 0;
