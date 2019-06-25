@@ -34,8 +34,8 @@ router.get('/carreras/:id/cursos', function (req, res) {
 router.get('/carreras/:id/cursos/:id2/materias/:id3', function (req, res) {
   var fechas = [];
   var alumnos = [];
-  var materia = data.materias.find(item => item.id_materia == req.params.id2);
-  var asignacion = data.asignaciones.find(item => item.id_carrera = req.params.id & item.id_curso == req.params.id1 && item.id_materia == req.params.id2);
+  var materia = data.materias.find(item => item.id_materia == req.params.id3);
+  var asignacion = data.asignaciones.find(item => item.id_carrera = req.params.id & item.id_curso == req.params.id2 && item.id_materia == req.params.id3);
   var programa = data.programas.find(item => item.id_asignacion == asignacion.id_asignacion);
   var fecha_clases = data.fechas_clases.find(item => item.id_carrera == asignacion.id_carrera);
 
@@ -50,7 +50,7 @@ router.get('/carreras/:id/cursos/:id2/materias/:id3', function (req, res) {
   }
 
   for (var i = 0; i < data.alumnos_inscriptos.length; i++){
-    if (data.alumnos_inscriptos[i].id_programa == programa.id_programa){
+    if (data.alumnos_inscriptos[i].id_asignacion == programa.id_asignacion){
       var alumno = data.alumnos.find(item => item.id_alumno == data.alumnos_inscriptos[i].id_alumno);
       var persona = data.personas.find(item => item.id_persona == alumno.id_persona);
       persona.detalle = alumno;
@@ -63,8 +63,11 @@ router.get('/carreras/:id/cursos/:id2/materias/:id3', function (req, res) {
   res.json(materia);
 });
 
-router.post('/carreras/:id/cursos/:id2/materias/:id3', function (req, res) {
+router.post('/carreras/:id/cursos/:id2/materias/:id3/inscripcion', function (req, res) {
+  var asignacion = data.asignaciones.find(item => item.id_carrera == req.params.id && item.id_curso == req.params.id2 && item.id_materia == req.params.id3);
   
+  var itemI = { id: (data.alumnos_inscriptos.length + 1) };
+  data.alumnos_inscriptos.push({id_alumnos_inscriptos:itemI.id, id_asignacion:asignacion.id_asignacion,id_alumno: req.body.id_alumno });
   res.json({status: 'OK'});
 });
 
