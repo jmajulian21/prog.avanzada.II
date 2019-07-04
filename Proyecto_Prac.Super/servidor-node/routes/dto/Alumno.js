@@ -3,6 +3,7 @@ var bodyParser = require("body-parser");
 var router = express.Router();
 var seq = require("./utils/Secuencia");
 var personaRepo = require("../model/PersonaRepository");
+var alumnoRepo = require("../model/AlumnoRepository");
 
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
@@ -19,11 +20,10 @@ router.use(bodyParser.json());
 
 router.post('/alumnos', function (req, res) {
   seq.persona().then(function (idPeson) {
-    var persona = {};
+    var persona = req.body.datoAlumno;
     persona.id = idPeson;
-    persona.nombre = 'Julian';
-    
-    personaRepo.add(persona).then(function (result) {
+
+    personaRepo.add(persona).then(function (result) {     
       res.send(result);
     })
   });
