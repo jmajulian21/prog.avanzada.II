@@ -5,13 +5,6 @@ import { withStyles } from '@material-ui/core/styles';
 import {styles} from '../utils/css/styles'
 
 class Persona extends Component {
-constructor(props){
-    super(props);
-    this.props.item.tipoDoc = 1;
-    this.props.item.sexo = 1;
-    this.props.item.localidad = 1;
-    
-}
 
 handleChange = (e, prop) => {
   let valor = e.target.value;
@@ -29,6 +22,7 @@ handleChange = (e, prop) => {
               <TextField  className={classes.textField} margin="normal" label="Nombre" value={this.props.item.nombre} onChange={e => this.handleChange(e,"nombres")}/>
               <TextField  className={classes.textField} margin="normal" label="Apellido" value={this.props.item.apellido} onChange={e => this.handleChange(e,"apellido")} />
               <TextField  select className={classes.textField} margin="normal" label="Tipo Documento" value={this.props.item.tipoDoc} onChange={e => this.handleChange(e,"tipoDoc")} SelectProps={{native: true}}>
+                  <option value={""}/>
                   {tipoDoc.map(option => (
                     <option key={option.value} value={option.value}>
                       {option.label}
@@ -38,6 +32,7 @@ handleChange = (e, prop) => {
               <TextField className={classes.textField} margin="normal" type="number" label="Documento" value={this.props.item.nroDoc} onChange={e => this.handleChange(e,"nroDoc")}/>
               <TextField className={classes.textField} margin="normal" id="date" label="Fecha Nacimiento" type="date" value={this.props.item.fechNacimiento} onChange={e => this.handleChange(e,"fechNacimiento")} InputLabelProps={{shrink: true}}/>
               <TextField select className={classes.textField} margin="normal" label="Sexo" value={this.props.item.sexo} onChange={e => this.handleChange(e,"sexo")} SelectProps={{native: true}}>
+                  <option value={""}/>
                   {sexo.map(option => (
                     <option key={option.value} value={option.value}>
                       {option.label}
@@ -50,6 +45,7 @@ handleChange = (e, prop) => {
               <TextField className={classes.textField} margin="normal" label="piso" value={this.props.item.piso} onChange={e => this.handleChange(e,"piso")}/>
               <TextField className={classes.textField} margin="normal" type="number" label="Cod.Postal" value={this.props.item.codPostal} onChange={e => this.handleChange(e,"codPostal")}/>
               <TextField select className={classes.textField} margin="normal" label="Localidad" value={this.props.item.localidad} onChange={e => this.handleChange(e,"localidad")} SelectProps={{native: true}}>
+                  <option value={""}/>
                   {localidad.map(option => (
                     <option key={option.value} value={option.value}>
                       {option.label}

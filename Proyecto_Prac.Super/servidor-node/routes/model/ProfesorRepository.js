@@ -1,18 +1,18 @@
 var ds = require("./config/config");
 
-  function add(alumno) {
-    var id_alumno = '\''+alumno.id_alumno+'\'';
-    var id_persona = alumno.id_persona ? '\''+alumno.id_persona+'\'': null ;
-    var legajo = alumno.legajo ? '\''+alumno.legajo+'\'': null;
-    var egresadoDe = alumno.egresadoDe ? '\''+alumno.egresadoDe+'\'': null ;
-    var titulo = alumno.titulo ? '\''+alumno.titulo+'\'': null;
-    var promedio = alumno.promedio ? '\''+alumno.promedio+'\'': null ;
+  function add(profesor) {
+    var id_profesor = '\''+profesor.id_profesor+'\'';
+    var id_persona = profesor.id_persona ? '\''+profesor.id_persona+'\'': null ;
+    var legajo = profesor.legajo ? '\''+profesor.legajo+'\'': null;
+    var egresadoDe = profesor.egresadoDe ? '\''+profesor.egresadoDe+'\'': null ;
+    var titulo = profesor.titulo ? '\''+profesor.titulo+'\'': null;
+    var promedio = profesor.promedio ? '\''+profesor.promedio+'\'': null ;
 
 
     return new Promise(function (resolve, reject) {
         ds.connection.getConnection(
             function (err, connection) {
-                var sql = 'INSERT INTO UTN_PRACTICA.ALUMNO VALUES ('+id_alumno+','+
+                var sql = 'INSERT INTO UTN_PRACTICA.PROFESOR VALUES ('+id_profesor+','+
                                                                       id_persona+','+
                                                                       legajo+','+
                                                                       egresadoDe+','+

@@ -4,7 +4,7 @@ var router = express.Router();
 var seq = require("./utils/Secuencia");
 var legajo = require("./utils/Legajo");
 var personaRepo = require("../model/PersonaRepository");
-var alumnoRepo = require("../model/AlumnoRepository");
+var profesorRepo = require("../model/ProfesorRepository");
 
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());

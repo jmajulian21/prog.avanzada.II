@@ -1,22 +1,5 @@
 var ds = require("./config/config");
 
-/*data.personas.push({
-    id_persona: itemP.id,
-    nombre: pers.nombre,
-    apellido: pers.apellido,
-    tipoDoc: parseInt(pers.tipoDoc) || null,
-    nroDoc: pers.nroDoc,
-    fechNacimiento: pers.fechNacimiento,
-    sexo: pers.sexo,
-    direccion: pers.direccion,
-    piso: pers.piso,
-    codPostal: parseInt(pers.codPostal) || null,
-    localidad: pers.localidad,
-    telefono: pers.telefono,
-    celular: pers.celular,
-    email: pers.email
-  })*/
-
 function add(persona) {
     var id = '\''+persona.id+'\'';
     var nombre = persona.apellido ? '\''+persona.nombre+'\'': null ;

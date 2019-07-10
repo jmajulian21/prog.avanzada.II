@@ -14,7 +14,6 @@ myHeaders.append("Content-Type", "application/json");
 function actualizarBody() {
   data = {
     datoAlumno: {
-      id: null,
       nombre: dtoPersona.nombres,
       apellido: dtoPersona.apellido,
       tipoDoc: dtoPersona.tipoDoc,
@@ -61,9 +60,9 @@ class AlumnoC extends Component {
       body: JSON.stringify(data),
       headers: myHeaders
     }).then(res => res)
-      .then(data => console.log(data))
+      .then(data => alert('El alumno ha sido creado exitosamente.'))
       .catch(err => console.log(err))
-    window.location.replace('');
+      
   }
 
   render() {
