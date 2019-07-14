@@ -1,14 +1,14 @@
 var express = require('express');
 var router = express.Router();
-//var data = require('../data/data');
+var carreraRepo = require("../model/CarreraRepository");
 
-/*Metodo del Express
+//Metodo del Express
 router.get('/carreras', function (req, res) {
-  var resp = data.carreras;
-
-  res.json(resp);
+  carreraRepo.get().then(function (data) {
+      { res.json(data);}
+  });
 });
-
+/*
 router.get('/carreras/:id/cursos', function (req, res) {
   var id = req.params.id;
   var resp = [];
@@ -81,8 +81,8 @@ router.post('/carreras/:id/cursos/:id2/materias/:id3/inscripcion', function (req
   var itemI = { id: (data.alumnos_inscriptos.length + 1) };
   data.alumnos_inscriptos.push({id_alumnos_inscriptos:itemI.id, id_asignacion:asignacion.id_asignacion,id_alumno: req.body.id_alumno });
   res.json({status: 'OK'});
-});*/
-
+});
+*/
 
 
 module.exports = router;
