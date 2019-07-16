@@ -12,7 +12,7 @@ var ds = require("./config/config");
     return new Promise(function (resolve, reject) {
         ds.connection.getConnection(
             function (err, connection) {
-                var sql = 'INSERT INTO UTN_PRACTICA.PROFESOR VALUES ('+id_profesor+','+
+                var sql = 'INSERT INTO PROFESOR VALUES ('+id_profesor+','+
                                                                       id_persona+','+
                                                                       legajo+','+
                                                                       egresadoDe+','+

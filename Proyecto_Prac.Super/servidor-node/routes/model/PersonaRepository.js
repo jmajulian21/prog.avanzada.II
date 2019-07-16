@@ -20,7 +20,7 @@ function add(persona) {
     return new Promise(function (resolve, reject) {
         ds.connection.getConnection(
             function (err, connection) {
-                var sql = 'INSERT INTO UTN_PRACTICA.PERSONA VALUES ('+id+','+
+                var sql = 'INSERT INTO PERSONA VALUES ('+id+','+
                                                                       nombre+','+
                                                                       apellido+','+
                                                                       tipoDoc+','+

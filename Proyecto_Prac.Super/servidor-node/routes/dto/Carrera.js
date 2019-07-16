@@ -1,48 +1,28 @@
 var express = require('express');
 var router = express.Router();
 var carreraRepo = require("../model/CarreraRepository");
+var cursoRepo = require("../model/CursoRepository");
 
 //Metodo del Express
 router.get('/carreras', function (req, res) {
-  carreraRepo.get().then(function (data) {
+  var carrera = {};
+  carreraRepo.findAll(carrera).then(function (data) {
       { res.json(data);}
   });
 });
-/*
+
 router.get('/carreras/:id/cursos', function (req, res) {
-  var id = req.params.id;
-  var resp = [];
-
-  for (var i = 0; i < data.asignaciones.length; i++){
-    if (data.asignaciones[i].id_carrera == id){
-      console.log(data.asignaciones[i].id_carrera);
-      for (var j = 0; j < data.cursos.length; j++){
-        if(data.cursos[j].id_curso == data.asignaciones[i].id_curso){
-          resp.push(data.cursos[j]);
-        } 
-      } 
-    }
-  }
-
-  res.json(resp);
+  cursoRepo.findBy(req.params).then(function (data) {
+    { res.json(data);}
+  })
 });
 
 router.get('/carreras/:id1/cursos/:id2/materias', function (req, res) {
-  var id1 = req.params.id1;
-  var id2 = req.params.id2;
-  var resp = [];
-  for (var i = 0; i < data.asignaciones.length; i++) {
-    if (data.asignaciones[i].id_carrera = id1 && data.asignaciones[i].id_curso == id2) {
-      for (var j = 0; j < data.materias.length; j++) {
-        if (data.materias[j].id_materia == data.asignaciones[i].id_materia) {
-          resp.push(data.materias[j]);
-        }
-      }
-    }
-  }
-  res.json(resp);
+  cursoRepo.findBy(req.params).then(function (data) {
+    { res.json(data);}
+  })
 });
-
+/*
 router.get('/carreras/:id/cursos/:id2/materias/:id3', function (req, res) {
   var fechas = [];
   var alumnos = [];
