@@ -5,31 +5,46 @@ var seq = require("./utils/Secuencia");
 var legajo = require("./utils/Legajo");
 var personaRepo = require("../model/PersonaRepository");
 var profesorRepo = require("../model/ProfesorRepository");
+var usuarioRepo = require("../model/UsuarioRepository");
 
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
-router.get('/alumnos/legajo', function (req, res) {
-  legajo.alumno().then(function (legajo_alumno){
-    res.json({legajo:legajo_alumno});
+router.get('/profesor/legajo', function (req, res) {
+  legajo.profesor().then(function (legajo_profesor) {
+    res.json({ legajo: legajo_profesor });
   })
 });
 
-router.post('/alumnos', function (req, res) {
+router.post('/profesor', function (req, res) {
+  var usuario = {};
   seq.persona().then(function (idPeson) {
 
-    var persona = req.body.datoAlumno;
-    var alumno = persona.detalle;
+    var persona = req.body.datoProfesor;
+    var profesor = persona.detalle;
     persona.id = idPeson;
-    alumno.id_persona = idPeson;
-    
+    profesor.id_persona = idPeson;
+
+    usuario.id_persona = idPeson;
+    usuario.tipo_usuario = 'Profesor';
+    usuario.user = profesor.legajo;
+    usuario.pass = persona.nroDoc;
 
     personaRepo.add(persona).then(function (resultPerson) {
       if (resultPerson === 'OK') {
-        seq.alumno().then(function (idAlumno) {
-          alumno.id_alumno = idAlumno;
-          alumnoRepo.add(alumno).then(function (resultAlumno) {
-            if (resultAlumno === 'OK') { res.send('OK');}
+        seq.profesor().then(function (idProfesor) {
+          profesor.id_alumno = idProfesor;
+          profesorRepo.add(profesor).then(function (resultProfesor) {
+            if (resultProfesor === 'OK') {
+              seq.usuario().then(function (id_usuario) {
+                usuario.id_usuario = id_usuario;
+                usuarioRepo.add(usuario).then(function (resultUsuario) {
+                  if (resultUsuario === 'OK') {
+                    res.send( {status : 'OK'} );
+                  }
+                })
+              })
+            }
           })
         })
       }

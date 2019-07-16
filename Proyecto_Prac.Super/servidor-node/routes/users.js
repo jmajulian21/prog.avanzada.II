@@ -1,11 +1,16 @@
 var express = require('express');
 var router = express.Router();
+var usuarioRepo = require("./model/UsuarioRepository");
 
-const users = [{ name: 'Juan', lastname: 'Dox' }, { name: 'Mari', lastname: 'Dolores' }]
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.post('/login', function (req, res, next) {
+  var params = {};
+  params.user = req.body.usuario;
+  params.pass = req.body.contraseña;
+  
+  usuarioRepo.findBy(params).then(function (data) {
+    res.json(data);
+  });
 });
 
 module.exports = router;

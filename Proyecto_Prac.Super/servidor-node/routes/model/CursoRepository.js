@@ -12,7 +12,6 @@ function findBy(params) {
 
                 connection.query(sql, function (err, rows, fields) {
                     try {
-                        console.log(err);
                         connection.release();
                         resolve(rows);
                     } catch (e) {

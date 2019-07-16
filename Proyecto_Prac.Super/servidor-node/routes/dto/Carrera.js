@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 var carreraRepo = require("../model/CarreraRepository");
 var cursoRepo = require("../model/CursoRepository");
+var materiaRepo = require("../model/MateriaRepository");
 
-//Metodo del Express
 router.get('/carreras', function (req, res) {
   var carrera = {};
   carreraRepo.findAll(carrera).then(function (data) {
@@ -18,10 +18,14 @@ router.get('/carreras/:id/cursos', function (req, res) {
 });
 
 router.get('/carreras/:id1/cursos/:id2/materias', function (req, res) {
-  cursoRepo.findBy(req.params).then(function (data) {
+  var params = {};
+  params.id_carrera = req.params.id1;
+  params.id_curso = req.params.id2;
+  materiaRepo.findBy(params).then(function (data) {
     { res.json(data);}
   })
 });
+
 /*
 router.get('/carreras/:id/cursos/:id2/materias/:id3', function (req, res) {
   var fechas = [];
