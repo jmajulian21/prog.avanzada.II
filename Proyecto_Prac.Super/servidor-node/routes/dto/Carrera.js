@@ -3,6 +3,8 @@ var router = express.Router();
 var carreraRepo = require("../model/CarreraRepository");
 var cursoRepo = require("../model/CursoRepository");
 var materiaRepo = require("../model/MateriaRepository");
+var programaRepo = require("../model/ProgramaRepository");
+var fechaClasesRepo = require("../model/FechaClasesRepository");
 
 router.get('/carreras', function (req, res) {
   var carrera = {};
@@ -26,8 +28,39 @@ router.get('/carreras/:id1/cursos/:id2/materias', function (req, res) {
   })
 });
 
-/*
+
 router.get('/carreras/:id/cursos/:id2/materias/:id3', function (req, res) {
+    var params = {};
+    params.id_carrera = req.params.id;
+    params.id_curso = req.params.id2;
+    params.id_materia = req.params.id3;
+
+    fechaClasesRepo.findBy(params).then(function (fechasClases) {
+        programaRepo.findBy(params).then(function (programa){
+          var fecha_inicio = new Date(fechasClases.fecha_inicio) ;
+          var fecha_final = new Date(fechasClases.fecha_final) ;
+          var fechas = [];
+
+          for(i=0; i<20;i++){
+              var fechaInicio = new Date(fecha_inicio);
+              fechaInicio.setDate(fecha_inicio.getDate() + (7*i));
+              fechas.push(fechaInicio);
+          }
+          
+          res.json(fechas);
+        });
+    });
+  });
+
+
+/*
+router.post('/carreras/:id/cursos/:id2/materias/:id3/inscripcion', function (req, res) {
+  var asignacion = data.asignaciones.find(item => item.id_carrera == req.params.id && item.id_curso == req.params.id2 && item.id_materia == req.params.id3);
+  
+  var itemI = { id: (data.alumnos_inscriptos.length + 1) };
+  data.alumnos_inscriptos.push({id_alumnos_inscriptos:itemI.id, id_asignacion:asignacion.id_asignacion,id_alumno: req.body.id_alumno });
+  res.json({status: 'OK'});
+});
   var fechas = [];
   var alumnos = [];
   var materia = data.materias.find(item => item.id_materia == req.params.id3);
@@ -57,15 +90,6 @@ router.get('/carreras/:id/cursos/:id2/materias/:id3', function (req, res) {
   materia.alumnos = alumnos;
   
   res.json(materia);
-});
-
-router.post('/carreras/:id/cursos/:id2/materias/:id3/inscripcion', function (req, res) {
-  var asignacion = data.asignaciones.find(item => item.id_carrera == req.params.id && item.id_curso == req.params.id2 && item.id_materia == req.params.id3);
-  
-  var itemI = { id: (data.alumnos_inscriptos.length + 1) };
-  data.alumnos_inscriptos.push({id_alumnos_inscriptos:itemI.id, id_asignacion:asignacion.id_asignacion,id_alumno: req.body.id_alumno });
-  res.json({status: 'OK'});
-});
 */
 
 

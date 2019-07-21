@@ -4,7 +4,7 @@ function findBy(params) {
     var id_carrera = params.id_carrera;
     var id_curso = params.id_curso;
     var id_materia = params.id_materia;
-
+    
     return new Promise(function (resolve, reject) {
         ds.connection.getConnection(
             function (err, connection) {
@@ -21,7 +21,7 @@ function findBy(params) {
                 connection.query(queryPrograma, function (err, rows, fields) {
                     try {
                         connection.release();
-                        resolve(rows);
+                        resolve(rows[0]);
                     } catch (e) {
                         reject("NOOK");
                     }
