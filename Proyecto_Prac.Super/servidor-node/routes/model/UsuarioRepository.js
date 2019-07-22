@@ -12,7 +12,7 @@ function findBy(params) {
                           ' INNER JOIN PERSONA ON PERSONA.ID_PERSONA = USUARIO.ID_PERSONA '+
                           ' WHERE USUARIO.USUARIO LIKE \''+ params.user +'\''+
                           ' AND USUARIO.CONTRASEÑA LIKE \''+params.pass+'\'';
-                console.log(sql);
+
                 connection.query(sql, function (err, rows, fields) {
                     try {
                         if (err) throw err;

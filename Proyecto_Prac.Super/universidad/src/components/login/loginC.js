@@ -4,7 +4,7 @@ import Login from './login';
 class LoginC extends Component{
     render(){
         return(
-            <Login/>
+            <Login {...this.props}/>
         )
     }
 }

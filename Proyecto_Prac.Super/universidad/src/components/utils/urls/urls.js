@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch,Redirect} from 'react-router-dom';
+import { Route, Switch} from 'react-router-dom';
 
 import History from '../../home/history/History';
 import ABMAlumno from '../../ABM/ABMAlumno/ABMAlumno';
@@ -13,13 +13,10 @@ import Asignacion from '../../materia/asignacion/AasignacionC';
 import Carrera from '../../ABM/ABMCarrera/CarreraC';
 import MateriaAlta from '../../ABM/ABMMateria/MateriaC';
 
-const Inicio = () => <h1>Facultad de Ciencia</h1>
-
 class Urls extends Component {
   render() {
     return (
             <Switch>
-              <Route exact path='/inicio' component={Inicio}/>
               <Route exact path='/history' component={History}/>
               <Route exact path='/alumnos/gestion' component={ABMAlumno}/>
               <Route exact path='/profesores/gestion' component={ABMProfesor}/>
@@ -31,11 +28,12 @@ class Urls extends Component {
               <Route exact path='/materias/asignacion' component={Asignacion}/>
               <Route exact path='/carreras/gestion' component={Carrera}/>
               <Route exact path='/materias/gestion' component={MateriaAlta}/>
-
-              <Redirect to='/inicio'/>
             </Switch>
     );
   }
 }
 
 export default Urls;
+
+
+//

@@ -37,17 +37,24 @@ router.get('/carreras/:id/cursos/:id2/materias/:id3', function (req, res) {
 
     fechaClasesRepo.findBy(params).then(function (fechasClases) {
         programaRepo.findBy(params).then(function (programa){
+          console.log(programa);
           var fecha_inicio = new Date(fechasClases.fecha_inicio) ;
-          var fecha_final = new Date(fechasClases.fecha_final) ;
           var fechas = [];
 
-          for(i=0; i<20;i++){
+          for(i=0; i<14;i++){
               var fechaInicio = new Date(fecha_inicio);
-              fechaInicio.setDate(fecha_inicio.getDate() + (7*i));
-              fechas.push(fechaInicio);
+              fechaInicio.setDate(fecha_inicio.getDate() + (programa.id_dia_clase_1 - 1) + (7*i));
+              var item = {key:i+1,fecha:fechaAR.toLocaleDateString()}
+              fechas.push(item);
           }
+
+          let clases = fechas.filter(item => item <= new Date() );
+          clases.sort(function (a, b) {
+            return b - a;
+          });
+
           
-          res.json(fechas);
+          res.json(clases);
         });
     });
   });

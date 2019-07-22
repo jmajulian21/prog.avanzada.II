@@ -1,40 +1,47 @@
 import React, { Component } from 'react';
-import { Dialog,DialogActions,DialogContent,DialogTitle,TextField,Button} from '@material-ui/core';
+import { TextField, Button, Grid, Paper } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+import { styles } from '../utils/css/styles';
 
-class Login extends Component{
+class Login extends Component {
     state = {
-        open: true,
-      };
-    
-      handleClickOpen = () => {
-        this.setState({ open: true });
-      };
-    
-      handleClose = () => {
-        this.setState({ open: false });
-      };
+        user: "",
+        pass: ""
+    }
 
-    render(){
-        return(
-            <div>
-                <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
-                <DialogTitle id="form-dialog-title">Login</DialogTitle>
-                <DialogContent>
-                    <TextField autoFocus margin="dense" id="name" label="Email o Usuario" type="email" fullWidth/>
-                    <TextField autoFocus margin="dense" id="name" label="Contraseña" type="Password" fullWidth/>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={this.handleClose} color="primary">
-                    Cerrar
-                    </Button>
-                    <Button onClick={this.handleClose} color="primary">
-                    Logear
-                    </Button>
-                </DialogActions>
-                </Dialog>
-            </div>
+    constructor(props) {
+        super(props);
+        this.setUser = this.setUser.bind(this);
+        this.setPass = this.setPass.bind(this);
+        this.onClickEnviar = this.onClickEnviar.bind(this);
+    }
+
+    onClickEnviar() {
+        var user = this.state.user;
+        var pass = this.state.pass;
+        this.props.onCargar(user,pass);
+    }
+
+
+    render() {
+        const { classes } = this.props;
+        return (
+                <Grid container direction="row">
+                    <Grid item xs={4} />
+                    <Grid item xs={2}>
+                        <Paper >
+                            <TextField className={classes.textField} id="user" label="legajo" value={this.state.user} onChange={this.setUser} type="text" />
+                            <TextField className={classes.textField} id="pass" label="Contraseña" value={this.state.pass} onChange={this.setPass} type="password" />
+                            <Button variant="contained" className={classes.textField} onClick={this.onClickEnviar} color="primary" >Ingresar</Button>
+                        </Paper>
+                    </Grid>
+                    <Grid item xs={4} />
+                </Grid>
         )
     }
+    setUser(e) { this.setState({ user: e.target.value }) }
+    setPass(e) { this.setState({ pass: e.target.value }) }
 }
 
-export default Login;
+
+export default withStyles(styles)(Login);
