@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-07-2019 a las 23:50:41
+-- Tiempo de generación: 23-07-2019 a las 23:21:48
 -- Versión del servidor: 10.1.40-MariaDB
 -- Versión de PHP: 7.3.5
 
@@ -58,6 +58,13 @@ CREATE TABLE `alumno_inscripto` (
   `id_fecha_clase` int(11) NOT NULL,
   `id_alumno` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `alumno_inscripto`
+--
+
+INSERT INTO `alumno_inscripto` (`id_alumno_inscripto`, `id_asignacion`, `id_fecha_clase`, `id_alumno`) VALUES
+(1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -202,7 +209,6 @@ INSERT INTO `horario_clase` (`id_horario_clase`, `horario_desde`, `horario_hasta
 
 CREATE TABLE `materia` (
   `id_materia` int(11) NOT NULL,
-  `legajo` int(11) NOT NULL,
   `materia` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -210,8 +216,43 @@ CREATE TABLE `materia` (
 -- Volcado de datos para la tabla `materia`
 --
 
-INSERT INTO `materia` (`id_materia`, `legajo`, `materia`) VALUES
-(1, 1, 'Matematica');
+INSERT INTO `materia` (`id_materia`, `materia`) VALUES
+(1, 'Matematica'),
+(2, 'Sistema de Procesamiento de Datos'),
+(3, 'Inglés'),
+(4, 'Programacion I'),
+(5, 'Laboratorio de Computacion I'),
+(6, 'Arquitectura y Sistemas Operativo'),
+(7, 'Estadistica'),
+(8, 'Ingles II'),
+(9, 'Programacion II'),
+(10, 'Laboratorio de Computacion II'),
+(11, 'Metodologia de la Investigacion'),
+(11, 'Elemento de Investigacion Operativa'),
+(12, 'Programacion III'),
+(13, 'Laboratorio de Computacion III'),
+(14, 'Organizacion Operativa III'),
+(15, 'Organizacion Contable de la Empresa'),
+(16, 'Organizacion Empresarial'),
+(17, 'Diseño y Administracion de Bases de Datos'),
+(18, 'Laboratorio de Computacion IV'),
+(19, 'Legislacion'),
+(20, 'Metodologia en Sistemas I'),
+(21, 'Metodologia de Sistemas II'),
+(22, 'Programacion Avanzada I'),
+(23, 'Laboratorio de Computacion V'),
+(24, 'Bases de Datos II'),
+(25, 'Matematica II'),
+(26, 'Redes'),
+(27, 'Ingles Tecnico Avanzado I'),
+(28, 'Administracion y Direccion de Poryectos Infor'),
+(29, 'Metodologia de Sistemas III'),
+(30, 'Investigacion Operativa II'),
+(31, 'Ingles Tecnico Avanzado II'),
+(32, 'Matematica III'),
+(33, 'Programacion Avanzada II'),
+(34, 'Seminario'),
+(35, 'Practica Supervisada');
 
 -- --------------------------------------------------------
 
