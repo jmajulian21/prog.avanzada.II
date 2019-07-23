@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { TextField, Button, Grid, Paper } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from '../utils/css/styles';
+import { AuthConsumer } from './context/AuthProvider';
 
 class Login extends Component {
     state = {
@@ -19,24 +20,26 @@ class Login extends Component {
     onClickEnviar() {
         var user = this.state.user;
         var pass = this.state.pass;
-        this.props.onCargar(user,pass);
+        this.props.onCargar(user, pass);
     }
 
 
     render() {
         const { classes } = this.props;
         return (
+            <AuthConsumer>{({ login }) => (
                 <Grid container direction="row">
                     <Grid item xs={4} />
                     <Grid item xs={2}>
                         <Paper >
                             <TextField className={classes.textField} id="user" label="legajo" value={this.state.user} onChange={this.setUser} type="text" />
                             <TextField className={classes.textField} id="pass" label="Contraseña" value={this.state.pass} onChange={this.setPass} type="password" />
-                            <Button variant="contained" className={classes.textField} onClick={this.onClickEnviar} color="primary" >Ingresar</Button>
+                            <Button variant="contained" className={classes.textField} onClick={login(this.state.user,this.state.pass)} color="primary" >Ingresar</Button>
                         </Paper>
                     </Grid>
                     <Grid item xs={4} />
                 </Grid>
+            )}</AuthConsumer>
         )
     }
     setUser(e) { this.setState({ user: e.target.value }) }
@@ -45,3 +48,16 @@ class Login extends Component {
 
 
 export default withStyles(styles)(Login);
+
+
+/*<Grid container direction="row">
+<Grid item xs={4} />
+<Grid item xs={2}>
+    <Paper >
+        <TextField className={classes.textField} id="user" label="legajo" value={this.state.user} onChange={this.setUser} type="text" />
+        <TextField className={classes.textField} id="pass" label="Contraseña" value={this.state.pass} onChange={this.setPass} type="password" />
+        <Button variant="contained" className={classes.textField} onClick={this.onClickEnviar} color="primary" >Ingresar</Button>
+    </Paper>
+</Grid>
+<Grid item xs={4} />
+</Grid>*/

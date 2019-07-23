@@ -11,7 +11,7 @@ class MenuContainer extends Component {
         
 
         return(
-            <Menu {...this.props} refresh={this.refresh}/>
+            <Menu {...this.props}/>
         )
     }
 }

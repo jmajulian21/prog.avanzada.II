@@ -8,7 +8,8 @@ class Menu extends Component {
     }
 
     render() {
-        const { user } = this.props;
+        const user = {};
+        user.tipo_usuario = '';
         var Menuitems;
 
         if (user.tipo_usuario === 'Admin') {
