@@ -11,11 +11,13 @@ class App extends Component {
 
   render() {
     return (
-      <AuthProvider>
+      <div>
         <MenuContainer />
         <Urls />
-        <Login />
-      </AuthProvider>
+        <AuthProvider>
+          <Login />
+        </AuthProvider>
+      </div>
     );
   }
 }
