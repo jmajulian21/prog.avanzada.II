@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Button, Toolbar, AppBar } from '@material-ui/core';
+import { AuthConsumer } from '../login/context/AuthProvider'
 
 class Menu extends Component {
 
@@ -8,11 +9,8 @@ class Menu extends Component {
     }
 
     render() {
-        const user = {};
-        user.tipo_usuario = '';
-        var Menuitems;
-
-        if (user.tipo_usuario === 'Admin') {
+        console.log("AuthConsumer: "+AuthConsumer);
+        /*if (user.tipo_usuario === 'Admin') {
             Menuitems = <div><Button color="inherit" onClick={() => this.ir("/alumnos/gestion")} >Alumno</Button>
                 <Button color="inherit" onClick={() => this.ir("/profesores/gestion")} >Profesor</Button>
                 <Button color="inherit" onClick={() => this.ir("/materias/asignacion")}>Asignacion Materia</Button>
@@ -30,13 +28,15 @@ class Menu extends Component {
                 <Button color="inherit" onClick={() => this.ir("/asistencias")}>Asistencias</Button>
                 <Button color="inherit" onClick={() => this.ir("/consulta/materias")}>Consulta Materia</Button>
             </div>
-        };
+        };*/
 
         return (
             <AppBar position="static">
                 <Toolbar>
                     <Grid container>
-                        <Grid item xs={11}>{ Menuitems}</Grid>
+                        <Grid item xs={11}>
+                        
+                        </Grid>
                     </Grid>
                 </Toolbar>
             </AppBar>

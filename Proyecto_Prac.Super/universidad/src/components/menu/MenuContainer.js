@@ -3,13 +3,7 @@ import Menu from './Menu';
 import { withRouter } from "react-router-dom";
 
 class MenuContainer extends Component {
-    refresh = () =>{
-        console.log(this.props.user);
-      }
-
-    render() {
-        
-
+    render() { 
         return(
             <Menu {...this.props}/>
         )

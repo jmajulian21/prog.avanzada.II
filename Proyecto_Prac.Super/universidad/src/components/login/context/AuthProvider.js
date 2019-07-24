@@ -9,29 +9,31 @@ const AuthContext = React.createContext({
   login:() => {},
   logout:() => {},
 })
-
+let count = 0;
 class AuthProvider extends React.Component {
-  state = { isAuth: false,  userData: {id_persona:0,nombre:"",apellido:"",tipo_usuario:'Anonimo'}}
-
   constructor() {
     super()
+    this.state={
+      isAuth: false,  userData: {id_persona:0,nombre:"",apellido:"",tipo_usuario:'Anonimo'},tipo_usuario:""
+    }
     this.login = this.login.bind(this)
     this.logout = this.logout.bind(this)
   }
 
   login(user,pass,e) {
-    if(e){
-    fetch('http://localhost:8081/login', {
-      method: 'POST',
-      body: JSON.stringify({ usuario: user, contraseña: pass }),
-      headers: myHeaders
-    })
-      .then(response => response.json())
-      .then(data => {
-        setTimeout(() => this.setState({isAuth: false,userData:data}))}
-      )
-      console.log("userData: "+ this.state.userData);
-    }
+    if(e && count>0){
+      fetch('http://localhost:8081/login', {
+        method: 'POST',
+        body: JSON.stringify({ usuario: user, contraseña: pass }),
+        headers: myHeaders
+      })
+        .then(response =>  {return response.json()})
+        .then(data => {
+          this.setState({isAuth: true,userData:data,tipo_usuario:data});
+        })
+        console.log("user: "+ this.state.tipo_usuario);
+      }
+      count++;
   }
 
   logout() {
