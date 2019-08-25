@@ -1,0 +1,52 @@
+{
+  "name": "react-cookies",
+  "version": "0.1.2-beta.0",
+  "description": "Load and save cookies with React",
+  "main": "index.js",
+  "repository": "bukinoshita/react-cookies",
+  "author": "Bu Kinoshita <bukinoshita@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "xo"
+  },
+  "files": [
+    "lib",
+    "index.js"
+  ],
+  "keywords": [
+    "react-cookies",
+    "react-cookie",
+    "cookie",
+    "cookies",
+    "react"
+  ],
+  "dependencies": {
+    "cookie": "^0.4.0"
+  },
+  "devDependencies": {
+    "ava": "2.3.0",
+    "eslint-config-prettier": "6.1.0",
+    "husky": "3.0.4",
+    "lint-staged": "9.2.3",
+    "prettier": "1.18.2",
+    "xo": "0.24.0"
+  },
+  "xo": {
+    "extends": [
+      "prettier"
+    ],
+    "globals": [
+      "document"
+    ],
+    "ignores": [
+      "examples"
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "yarn test",
+      "prettier --semi false --single-quote --write",
+      "git add"
+    ]
+  }
+}
