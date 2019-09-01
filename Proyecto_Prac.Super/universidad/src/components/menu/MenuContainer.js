@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import Menu from './Menu';
-import { withRouter } from "react-router-dom";
 
 class MenuContainer extends Component {
     render() { 
         return(
-            <Menu {...this.props}/>
+            <Menu/>
         )
     }
 }
 
-export default withRouter(MenuContainer);
+export default MenuContainer;
