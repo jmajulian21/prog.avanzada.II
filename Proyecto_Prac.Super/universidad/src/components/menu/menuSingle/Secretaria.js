@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { Button} from '@material-ui/core';
+import { withRouter } from "react-router-dom";
 
 class Secretaria extends Component {
+
+    ir = to => {
+        this.props.history.push(to);
+    }
+
     render() {
         return (
             <div>
@@ -11,4 +17,4 @@ class Secretaria extends Component {
         )
     }
 }
-export default Secretaria;
+export default withRouter(Secretaria);
